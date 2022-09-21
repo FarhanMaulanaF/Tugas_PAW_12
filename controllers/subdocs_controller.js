@@ -9,6 +9,17 @@ exports.addingPost = (req, res) => {
           res.sendStatus(404).send('User was not found').end();
         }
         else{
+          let tabungan_ref = 0;
+          
+          if(req.body.pengeluaran != null){
+             tabungan_ref = - req.body.pengeluaran;
+
+          };
+          if(req.body.pemasukan != null){
+            tabungan_ref = req.body.pemasukan;
+          };
+          result.tabungan = result.tabungan + tabungan_ref
+          req.body.tabungan = result.tabungan;
           result.posts.push(req.body);
           result.markModified('posts'); 
           result.save(function(saveerr, saveresult) {
@@ -32,9 +43,10 @@ exports.addingPost = (req, res) => {
         if (!result){
           res.status(404).send('User was not found');
         }
-        else{
+        else{ 
+          
           result.posts.id(req.body._id).title = req.body.title;
-          result.posts.id(req.body._id).text = req.body.text;
+          result.posts.id(req.body._id).deskripsi = req.body.deskripsi;
           result.markModified('posts'); 
           result.save(function(saveerr, saveresult) {
             if (!saveerr) {

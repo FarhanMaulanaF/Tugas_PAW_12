@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema(
         type : String,
         default: ''
       },
+      tabungan: {
+        type : Number,
+        default: 0
+      },
       hashed_password: {
         type: String,
         required: true
