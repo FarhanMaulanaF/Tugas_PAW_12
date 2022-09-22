@@ -5,7 +5,9 @@ const router = express.Router()
 const{
     
     addingPost,
-    updatePost
+    updatePost,
+    deletePost,
+    readPost
     // forgotPasswordController,
     // resetPasswordController
 } = require('../controllers/subdocs_controller.js')
@@ -13,6 +15,9 @@ const{
 
 router.post('/addpost/:id',addingPost);
 router.put('/updatepost/:id',updatePost);
+router.get('/readpost/:id',readPost);
+router.put('/deletepost/:id',deletePost);
+
 
 
 module.exports=router

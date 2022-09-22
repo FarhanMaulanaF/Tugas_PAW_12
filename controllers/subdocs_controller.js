@@ -13,10 +13,13 @@ exports.addingPost = (req, res) => {
           
           if(req.body.pengeluaran != null){
              tabungan_ref = - req.body.pengeluaran;
+             result.pengeluaran = result.pengeluaran + req.body.pengeluaran
 
           };
           if(req.body.pemasukan != null){
             tabungan_ref = req.body.pemasukan;
+            result.pemasukan = result.pemasukan + req.body.pemasukan
+
           };
           result.tabungan = result.tabungan + tabungan_ref
           req.body.tabungan = result.tabungan;
@@ -35,6 +38,26 @@ exports.addingPost = (req, res) => {
       }
     });
   };
+
+  exports.readPost = (req, res) => {
+
+    //find the user first, then add the post to it
+    User.findById(req.params.id, function(err, result) {
+      if (!err) {
+        if (!result){
+          res.sendStatus(404).send('User was not found').end();
+        }
+        else{
+          return res.status(200).send(
+           result.posts
+          );
+        }
+      } else {
+        res.status(400).send("ERRORRR");
+      }
+    });
+  };
+
 
   exports.updatePost =  (req, res) => {
     //find user by its id, update its post with what's in req.body

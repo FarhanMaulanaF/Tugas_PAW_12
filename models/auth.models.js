@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema(
         type : Number,
         default: 0
       },
+      pemasukan: {
+        type : Number,
+        default: 0
+      },
+      pengeluaran: {
+        type : Number,
+        default: 0
+      },
       hashed_password: {
         type: String,
         required: true

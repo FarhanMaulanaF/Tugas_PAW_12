@@ -7,6 +7,7 @@ const postSchema = new mongoose.Schema({
   title: { type: String, required: true },
   deskripsi: { type: String }, 
   tempat: { type: String },  
+  date:{type:String}
  
 },{
   timestamps: true

@@ -27,4 +27,7 @@ router.post('/activation',activationController);
 // router.put('/resetpassword', resetPasswordValidator, resetPasswordController);
 
 
+
+
+
 module.exports=router
