@@ -1,5 +1,5 @@
 const express = require('express')
-
+const logger = require('morgan')
 const connectDB = require('./config/db')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -11,6 +11,8 @@ require('dotenv').config({
 
 const app = express()
 
+
+
 // Connect to database
 connectDB();
 
@@ -19,7 +21,7 @@ app.use(bodyParser.json())
 // Load routes
 const authRouter = require('./routes/auth.route')
 const postRouter = require('./routes/posts.route')
-
+const userRouter = require('./routes/user.route')
 
 // Dev Logginf Middleware
 
@@ -29,6 +31,7 @@ const postRouter = require('./routes/posts.route')
 // Use Routes
 app.use('/api', authRouter)
 app.use('/api', postRouter)
+app.use('/api', userRouter)
 
 
 app.use((req, res) => {

@@ -10,15 +10,18 @@ exports.addingPost = (req, res) => {
         }
         else{
           let tabungan_ref = 0;
-          
+          let body_perubahan = 0;
           if(req.body.pengeluaran != null){
-             tabungan_ref = - req.body.pengeluaran;
-             result.pengeluaran = result.pengeluaran + req.body.pengeluaran
+            body_perubahan = parseInt(req.body.pengeluaran)
+             tabungan_ref = - body_perubahan ;
+             result.pengeluaran = result.pengeluaran + body_perubahan
 
           };
           if(req.body.pemasukan != null){
-            tabungan_ref = req.body.pemasukan;
-            result.pemasukan = result.pemasukan + req.body.pemasukan
+            body_perubahan = parseInt(req.body.pemasukan)
+
+            tabungan_ref = body_perubahan;
+            result.pemasukan = result.pemasukan + body_perubahan
 
           };
           result.tabungan = result.tabungan + tabungan_ref
@@ -34,7 +37,7 @@ exports.addingPost = (req, res) => {
           });
         }
       } else {
-        res.status(400).send("ERRORRR");
+        res.status(400).send(err.message);
       }
     });
   };
@@ -48,7 +51,7 @@ exports.addingPost = (req, res) => {
           res.sendStatus(404).send('User was not found').end();
         }
         else{
-          return res.status(200).send(
+          return res.status(200).json(
            result.posts
           );
         }
@@ -67,8 +70,7 @@ exports.addingPost = (req, res) => {
           res.status(404).send('User was not found');
         }
         else{ 
-          
-          result.posts.id(req.body._id).title = req.body.title;
+      
           result.posts.id(req.body._id).deskripsi = req.body.deskripsi;
           result.markModified('posts'); 
           result.save(function(saveerr, saveresult) {

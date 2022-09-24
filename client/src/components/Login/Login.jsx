@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import authSvg from '../assets/login.svg';
-import { ToastContainer, toast } from "react-toastify";
+//import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import { authenticate, isAuth } from "../helpers/auth";
+import { authenticate, isAuth } from "../../helpers/auth.js";
 import { Link, Redirect, useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import LoadingSpinner from "../components/LoadingSpiner";
-import logoNesco from "../assets/logotc-big.png";
-import Background from "../components/Homepage/Cover/Background";
-import LogoTitle from "../assets/images/homepage/Logo-w-title.svg";
+
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,30 +24,6 @@ const Login = () => {
     setFormData({ ...formData, [text]: e.target.value });
   };
 
-  //  const sendGoogleToken = tokenId => {
-  //   axios
-  //     .post(`${process.env.REACT_APP_API_URL}/googlelogin`, {
-  //       idToken: tokenId
-  //     })
-  //     .then(res => {
-  //       console.log(res.data);
-  //       informParent(res);
-  //     })
-  //     .catch(error => {
-  //       console.log('GOOGLE SIGNIN ERROR', error.response);
-  //     });
-  // };
-  // const informParent = response => {
-  //   authenticate(response, () => {
-  //     isAuth() && isAuth().role === 'admin'
-  //       ? history.push('/admin')
-  //       : history.push('/private');
-  //   });
-  // };
-  // const responseGoogle = response => {
-  //   console.log(response);
-  //   sendGoogleToken(response.tokenId);
-  // };
   const handleSubmit = (e) => {
     console.log(process.env.REACT_APP_API_URL);
     e.preventDefault();
@@ -78,10 +49,10 @@ const Login = () => {
 
             if (isAuth() && isAuth().role === "admin") {
               navigate("/admin");
-              toast.success(`Selamat datang ${res.data.user.name}!`);
+              //toast.success(`Selamat datang ${res.data.user.name}!`);
             } else {
               navigate("/beranda");
-              toast.success(`Selamat datang ${res.data.user.name}!`);
+              //toast.success(`Selamat datang ${res.data.user.name}!`);
             }
           });
         })
@@ -93,21 +64,19 @@ const Login = () => {
             textChange: "Sign In",
           });
           console.log(err.response);
-          toast.error(err.response.data.errors);
+          // toast.error(err.response.data.errors);
         });
     } else {
-      toast.error("Isikan keseluruhan informasi Anda");
+      // toast.error("Isikan keseluruhan informasi Anda");
     }
   };
   return (
     <header className="w-full gap-2 bg-cover relative py-8 px-2 sm:px-8 bg-gradient-to-r from-biru to-ungu min-h-screen grid grid-cols-1 justify-items-center">
-      <Background />
+
       <div className="justify-self-center sm:justify-self-start ">
-        <Link to="/">
-          <img alt="" src={LogoTitle} className="h-20 "></img>
-        </Link>
+
       </div>
-      <ToastContainer />
+
       <form
         onSubmit={handleSubmit}
         className="bg-gradient-to-r from-[#262642] to-[#302B4A] backdrop-blur-md flex-1 md:px-16 rounded-3xl outline-[#] outline-2  p-6 w-5/6 sm:w-2/3 max-w-xl"
@@ -155,24 +124,7 @@ const Login = () => {
         </div>
       </form>
 
-      {/* <GoogleLogin
-                  clientId={`969730953690-habthaq3j8jg46i53tnn48njosr8ifgi.apps.googleusercontent.com`}
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  cookiePolicy={'single_host_origin'}
-                  render={renderProps => (
-                    <button
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                      className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline'
-                    >
-                      <div className=' p-2 rounded-full '>
-                        <i className='fab fa-google ' />
-                      </div>
-                      <span className='ml-4'>Sign In with Google</span>
-                    </button>
-                  )}
-                ></GoogleLogin> */}
+
     </header>
   );
 };
