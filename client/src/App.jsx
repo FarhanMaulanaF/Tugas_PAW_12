@@ -12,20 +12,15 @@ import './index.css';
 
 function App () {
   return (
-    < >
-            <Routes>
-            <Route path="/datepicker" element={<Datepicker/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/beranda" element={<Beranda/>} />
-            <Route path="/transaksi" element={<Transaksi/>} />
-            <Route path="/tambahtransaksi" element={<Private/>} />
-
-
-
-      
-
-      </Routes>
-    </>
+  < >
+    <Routes>
+      <Route path="/datepicker" element={<Datepicker/>} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/beranda" element={<Beranda/>} />
+      <Route path="/transaksi" element={<Transaksi/>} />
+      <Route path="/tambahtransaksi" element={<Private/>} />
+    </Routes>
+  </>
   );
 }
 
