@@ -1,5 +1,15 @@
 
 const User = require('../models/auth.models')
+
+exports.getRecord = async (req, res) => {
+  try {
+      const users = await User.find();
+      res.json(users);
+  } catch (error) {
+      res.status(500).json({message: error.message});
+  }
+}
+
 exports.addingPost = (req, res) => {
 
     //find the user first, then add the post to it
