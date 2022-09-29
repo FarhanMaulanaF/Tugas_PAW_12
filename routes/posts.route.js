@@ -4,6 +4,7 @@ const router = express.Router()
 //Load controllers
 const{
     
+    getRecord,
     addingPost,
     updatePost,
     deletePost,
@@ -16,6 +17,7 @@ const{
 router.post('/addpost/:id',addingPost);
 router.put('/updatepost/:id',updatePost);
 router.get('/readpost/:id',readPost);
+router.get('/getRecord',getRecord);
 router.put('/deletepost/:id',deletePost);
 
 
