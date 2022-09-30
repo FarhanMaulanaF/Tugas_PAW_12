@@ -22,6 +22,7 @@ const PrivateContent = () => {
     deskripsi: "",
     pengeluaran:0,
     tabungan: 0,
+    date:""
 
   });
   
@@ -34,6 +35,7 @@ const PrivateContent = () => {
      deskripsi,
      pengeluaran,
      tabungan,
+     date,
   } = formData;
   //handleValue
   const handleChange = (text) => (e) => {
@@ -62,6 +64,7 @@ const PrivateContent = () => {
                deskripsi,
                pengeluaran,
                tabungan,
+               date,
             },
             {
               headers: {
@@ -134,6 +137,8 @@ const PrivateContent = () => {
                 placeholder="Pengeluaran"
                 onchange={handleChange("pengeluaran")}
               />
+              <h1>Selected Date : {date}</h1> \
+              <input type= "date" onChange={handleChange("date")}/>
 
               <button
                 type="submit"

@@ -33,7 +33,7 @@ app.use('/api', authRouter)
 app.use('/api', postRouter)
 app.use('/api', userRouter)
 
-
+app.use(logger('dev'))
 app.use((req, res) => {
     res.status(404).json({
         success: false,

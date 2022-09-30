@@ -13,12 +13,16 @@ const{
     // resetPasswordController
 } = require('../controllers/subdocs_controller.js')
 
+const{
+    requireSignin
+} = require('../controllers/auth.controllers')
 
-router.post('/addpost/:id',addingPost);
-router.put('/updatepost/:id',updatePost);
-router.get('/readpost/:id',readPost);
+
 router.get('/getRecord',getRecord);
-router.put('/deletepost/:id',deletePost);
+router.post('/addpost/:id',requireSignin,addingPost);
+router.put('/updatepost/:id',requireSignin,updatePost);
+router.get('/readpost/:id',requireSignin,readPost);
+router.put('/deletepost/:id',requireSignin,deletePost);
 
 
 

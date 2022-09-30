@@ -19,6 +19,7 @@ exports.addingPost = (req, res) => {
           res.sendStatus(404).send('User was not found').end();
         }
         else{
+          console.log(req.body)
           let tabungan_ref = 0;
           let body_perubahan = 0;
           if(req.body.pengeluaran != null){
@@ -36,6 +37,7 @@ exports.addingPost = (req, res) => {
           };
           result.tabungan = result.tabungan + tabungan_ref
           req.body.tabungan = result.tabungan;
+          
           result.posts.push(req.body);
           result.markModified('posts'); 
           result.save(function(saveerr, saveresult) {
@@ -82,6 +84,8 @@ exports.addingPost = (req, res) => {
         else{ 
       
           result.posts.id(req.body._id).deskripsi = req.body.deskripsi;
+          result.posts.id(req.body._id).title = req.body.title;
+
           result.markModified('posts'); 
           result.save(function(saveerr, saveresult) {
             if (!saveerr) {
@@ -105,6 +109,26 @@ exports.addingPost = (req, res) => {
           res.status(404).send('User was not found');
         }
         else{
+          let tabungan_ref = 0;
+          let body_perubahan = 0;
+          if( result.posts.id(req.body._id).pengeluaran != null){
+            body_perubahan = result.posts.id(req.body._id).pengeluaran
+            console.log("ini adalah body perubahan dari pengeluaran" + body_perubahan)
+             tabungan_ref =  body_perubahan ;
+             result.pengeluaran = result.pengeluaran - body_perubahan
+
+          };
+          if( result.posts.id(req.body._id).pemasukan != null){
+            body_perubahan = result.posts.id(req.body._id).pemasukan 
+            console.log("ini adalah body perubahan dari pemasukan " + body_perubahan)
+
+            tabungan_ref = - body_perubahan;
+
+            result.pemasukan = result.pemasukan + tabungan_ref;
+
+          };
+          result.tabungan = result.tabungan + tabungan_ref
+
           result.posts.id(req.body._id).remove(function(removeerr, removresult) {
             if (removeerr) {
               res.status(400).send(removeerr.message);
@@ -113,7 +137,7 @@ exports.addingPost = (req, res) => {
           result.markModified('posts'); 
           result.save(function(saveerr, saveresult) {
             if (!saveerr) {
-              res.status(200).send(saveresult);
+              res.status(200).send(`Anda berhasil menghapus transaksi ${req.params.id}`+ saveresult);
             } else {
               res.status(400).send(saveerr.message);
             }
