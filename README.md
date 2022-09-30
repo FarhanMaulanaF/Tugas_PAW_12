@@ -8,6 +8,7 @@ Natasha Astia Dewanti - (20/463610/TK/51602)</br>
 Farhan Maulana Firmansyah - (20/460544/TK/51133)</p>
 
 <details><summary><h3>Wireframe UI</h3></summary>
+Link Figma: https://www.figma.com/file/Fvs2aHYn1sz8T2czR3Ji8R/UI-Design-PAW?node-id=0%3A1
 <img src="docs/assets/img/wireframe/landing page.jpg" class="img-responsive" alt="">
 <img src="docs/assets/img/wireframe/login page.jpg" class="img-responsive" alt="">
 <img src="docs/assets/img/wireframe/register page.jpg" class="img-responsive" alt="">
