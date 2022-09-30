@@ -8,10 +8,10 @@ Natasha Astia Dewanti - (20/463610/TK/51602)</br>
 Farhan Maulana Firmansyah - (20/460544/TK/51133)</p>
 
 <details><summary><h3>Wireframe UI</h3></summary>
-<img src="docs/assets/img/landing page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/login page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/register page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/dashboard-starting.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/transaction page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/dashboard fill in.jpg" class="img-responsive" alt="">
+<img src="docs/assets/img/wireframe/landing page.jpg" class="img-responsive" alt="">
+<img src="docs/assets/img/wireframe/login page.jpg" class="img-responsive" alt="">
+<img src="docs/assets/img/wireframe/register page.jpg" class="img-responsive" alt="">
+<img src="docs/assets/img/wireframe/dashboard-starting.jpg" class="img-responsive" alt="">
+<img src="docs/assets/img/wireframe/transaction page.jpg" class="img-responsive" alt="">
+<img src="docs/assets/img/wireframe/dashboard fill in.jpg" class="img-responsive" alt="">
 </details>
