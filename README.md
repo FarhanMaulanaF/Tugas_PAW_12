@@ -7,6 +7,9 @@ Alfath Nuurlathif Sulistianto - (20/460538/TK/51127)</br>
 Natasha Astia Dewanti - (20/463610/TK/51602)</br>
 Farhan Maulana Firmansyah - (20/460544/TK/51133)</p>
 
+<p><h3>Ide Web Aplikasi</h3></p>
+Aplikasi dengan tema financial yang akan membantu user untuk menganalisis dana pengeluaran dan pemasukkan.
+
 <details><summary><h3>Wireframe UI</h3></summary>
 Link Figma: https://www.figma.com/file/Fvs2aHYn1sz8T2czR3Ji8R/UI-Design-PAW?node-id=0%3A1
 <img src="docs/assets/img/wireframe/landing page.jpg" class="img-responsive" alt="">
