@@ -2,7 +2,11 @@
 import {Datepicker} from "./components/form/datepicker";
 import Test from "./components/form/test";
 import { Routes, Route } from "react-router-dom";
-import Login from "./components/Login/Login";
+import ActivateEmail from "./page/beforeUserLogin/activateEmail";
+import Login from "./page/beforeUserLogin/login";
+import Register from "./page/beforeUserLogin/register"
+import CreateNewPassword from "./components/beforeUserLogin/createNewPassword";
+import ForgotPassword from "./components/beforeUserLogin/forgotPassword";
 import Beranda from '../src/components/User/Dashboards/Beranda'
 import Transaksi from '../src/components/User/Transaksi/Transaksi'
 import Private from '../src/components/User/AddForm/Private'
@@ -15,7 +19,11 @@ function App () {
   < >
     <Routes>
       <Route path="/datepicker" element={<Datepicker/>} />
+      <Route path="/activate-email/:token" element={<ActivateEmail/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>} />
+      <Route path="/create-new-password" element={<CreateNewPassword/>} />
+      <Route path="/forgot-password" element={<ForgotPassword/>} />
       <Route path="/beranda" element={<Beranda/>} />
       <Route path="/transaksi" element={<Transaksi/>} />
       <Route path="/tambahtransaksi" element={<Private/>} />
