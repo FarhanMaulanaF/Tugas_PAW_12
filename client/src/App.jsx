@@ -10,6 +10,7 @@ import ForgotPassword from "./components/beforeUserLogin/forgotPassword";
 import Beranda from '../src/components/User/Dashboards/Beranda'
 import Transaksi from '../src/components/User/Transaksi/Transaksi'
 import Private from '../src/components/User/AddForm/Private'
+import Home from '../src/page/home/home'
 
 
 import './index.css';
@@ -18,6 +19,7 @@ function App () {
   return (
   < >
     <Routes>
+      <Route path="/" element={<Home/>}></Route>
       <Route path="/datepicker" element={<Datepicker/>} />
       <Route path="/activate-email/:token" element={<ActivateEmail/>} />
       <Route path="/login" element={<Login/>} />
