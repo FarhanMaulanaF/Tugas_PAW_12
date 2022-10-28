@@ -12,8 +12,8 @@ const CreateNewPassword = () => {
           <img src={GambarOrang} alt="Gambar Login" className="mt-12" />
         </div>
       </div>
-      <div className="bg-white justify-center items-center flex">
-        <div className="w-2/3 h-2/3">
+      <div className="bg-white justify-center items-center flex mt-auto mb-auto">
+        <div className="w-2/3 h-2/3 ">
           <h1 className="text-3xl text-black text-center font-bold mb-10">
             Create your new password
           </h1>
