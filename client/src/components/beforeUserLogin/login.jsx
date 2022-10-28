@@ -71,7 +71,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="h-screen bg-white grid grid-cols-2 ">
+    <div className="h-screen bg-white grid grid-cols-2 font-Roboto">
       <div className="bg-[#319C69] justify-center items-center flex">
         <div className="w-2/3 h-2/3">
           <h1 className="text-3xl text-white text-center  font-bold">

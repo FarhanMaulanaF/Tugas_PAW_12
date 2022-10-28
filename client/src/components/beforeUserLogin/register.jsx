@@ -71,7 +71,7 @@ const Register = () => {
 
   const [Submited, setSubmited] = useState(false);
   return (
-    <div className="h-screen bg-white grid grid-cols-2 ">
+    <div className="h-screen bg-white grid grid-cols-2 font-Roboto">
       <div className="bg-[#319C69] justify-center items-center flex">
         <div className="w-2/3 h-2/3">
           <h1 className="text-3xl text-white text-center  font-bold">
@@ -80,7 +80,7 @@ const Register = () => {
           <img src={GambarBoneka} alt="Gambar Login" className="mt-12" />
         </div>
       </div>
-      <div className="bg-white justify-center items-center flex ">
+      <div className="bg-white justify-center items-center flex">
         {!Submited
           ? <div className="w-2/3 h-2/3">
               <h1 className="text-3xl text-black text-center font-bold mb-10">
