@@ -8,7 +8,7 @@ const dashboard = () => {
       <nav className="bg-[#319C69] fixed w-screen inset-x-0 top-0 py-10 font-Roboto">
         <div class="flex flex-wrap justify-between items-center ml-16 mr-16">
           <div className="text-3xl text-white font-bold flex items-center">
-            Nama App
+            Pristin
           </div>
           <div className="flex item-center">
             <div className="text-base text-white mt-auto mb-auto mr-2 ">
@@ -30,7 +30,7 @@ const dashboard = () => {
                   <div>Add your starting balance</div>
                 </button>
               </div>
-              <div className="mt-5">Total Expanse
+              <div className="mt-5">Total Expense
                 <div className="grid h-4/5 place-items-center font-extralight text-base">Total of your expense.</div>
               </div>
               <div className="mt-5">Total Income

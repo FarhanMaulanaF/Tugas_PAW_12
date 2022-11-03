@@ -12,6 +12,7 @@ import Dashboard from "./components/afterUserLogin/dashboard";
 import Transaksi from '../src/components/User/Transaksi/Transaksi'
 import Private from '../src/components/User/AddForm/Private'
 import Home from '../src/page/home/home'
+import Transaction from "./components/afterUserLogin/transactionpage"
 
 
 import './index.css';
@@ -28,6 +29,7 @@ function App () {
       <Route path="/create-new-password" element={<CreateNewPassword/>} />
       <Route path="/forgot-password" element={<ForgotPassword/>} />
       <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path="/transaction" element={<Transaction/>} />
       <Route path="/beranda" element={<Beranda/>} />
       <Route path="/transaksi" element={<Transaksi/>} />
       <Route path="/tambahtransaksi" element={<Private/>} />
