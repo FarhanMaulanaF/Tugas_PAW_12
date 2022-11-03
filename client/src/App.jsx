@@ -13,6 +13,7 @@ import Transaksi from '../src/components/User/Transaksi/Transaksi'
 import Private from '../src/components/User/AddForm/Private'
 import Home from '../src/page/home/home'
 import Transaction from "./components/afterUserLogin/transactionpage"
+import TransactionFilter from "./components/afterUserLogin/transactionfilter"
 
 
 import './index.css';
@@ -30,6 +31,7 @@ function App () {
       <Route path="/forgot-password" element={<ForgotPassword/>} />
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/transaction" element={<Transaction/>} />
+      <Route path="/transactionfilter" element={<TransactionFilter/>} />
       <Route path="/beranda" element={<Beranda/>} />
       <Route path="/transaksi" element={<Transaksi/>} />
       <Route path="/tambahtransaksi" element={<Private/>} />
