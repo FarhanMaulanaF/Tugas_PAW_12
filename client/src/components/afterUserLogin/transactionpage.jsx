@@ -25,7 +25,7 @@ const transaction = () => {
       <div className="h-screen flex font-Roboto pt-44 px-16 pb-10 text-xl">
         <div className="bg-[#D9D9D9] text-black font-black w-full pr-5 rounded-lg">
           <div className="flex flex-wrap justify-between ml-5 mt-5">
-            <div className="ml-5">
+            <div className="ml-10">
               Transactions
             </div>
             <div className="flex justify-between">
