@@ -3,3 +3,5 @@ package-lock.json
 /config
 config/config.env
 config/db.js
+/.vs
+/.vscode
