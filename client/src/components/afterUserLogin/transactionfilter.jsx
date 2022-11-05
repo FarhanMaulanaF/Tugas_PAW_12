@@ -43,22 +43,34 @@ const transactionfilter = () => {
           </div>
           <div className="flex justify-between ml-5 mt">
             <div className="ml-2 flex justify-between bg-[#319C69] p-1.5 rounded-lg w-full">
-              <button className="items-center text-[#FFFFFF] flex font-normal text-base rounded-lg px-2 py-1">
+              <label className="items-center text-[#FFFFFF] flex font-normal text-base rounded-lg px-2 py-1">
                   <img src={FadersWhite} alt="FadersWhite"/>
                   <div className="ml-2 mr-10">Filter</div>
-              </button>
-              <button className="items-center border border-[#FFFFFF] bg-[#FFFFFF] text-[#686868] flex justify-between font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5">
-                  <div className="mr-5">By Category</div>
-                  <img src={CaretDown} alt="CaretDown"/>
-              </button>
-              <button className="items-center border border-[#FFFFFF] bg-[#FFFFFF] text-[#686868] flex justify-between font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5">
-                  <div className="mr-5">By Labels</div>
-                  <img src={CaretDown} alt="CaretDown"/>
-              </button>
-              <button className="items-center border border-[#FFFFFF] bg-[#FFFFFF] text-[#686868] flex justify-between font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5">
-                  <div className="mr-5">By Date Range</div>
-                  <img src={CaretDown} alt="CaretDown"/>
-              </button>
+              </label>
+              <select 
+                name="By Category"
+                className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5">
+                <option value="expense"> Expense </option>
+                <option value="income"> Income </option>
+              </select>
+              <select 
+                name="By Labels"
+                className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5">
+                <option value="food and drink"> Food and Drink </option>
+                <option value="shopping"> Shopping </option>
+                <option value="transport"> Transport </option>
+                <option value="entertaiment"> Entertaiment </option>
+                <option value="family"> Family </option>
+                <option value="others"> Others </option>
+              </select>
+              <select 
+                name="By Date Range"
+                className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5">
+                <option value="this week"> This Week </option>
+                <option value="last week"> Last Week </option>
+                <option value="this month"> This Month </option>
+                <option value="last month"> Last Month </option>
+              </select>
               <input
                 className="text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 focus:outline-none w-2/5"
                 placeholder="By Description"

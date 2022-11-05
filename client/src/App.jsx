@@ -31,7 +31,7 @@ function App () {
       <Route path="/forgot-password" element={<ForgotPassword/>} />
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/transaction" element={<Transaction/>} />
-      <Route path="/transactionfilter" element={<TransactionFilter/>} />
+      <Route path="/transaction/filter" element={<TransactionFilter/>} />
       <Route path="/beranda" element={<Beranda/>} />
       <Route path="/transaksi" element={<Transaksi/>} />
       <Route path="/tambahtransaksi" element={<Private/>} />
