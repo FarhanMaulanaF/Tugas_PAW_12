@@ -2,8 +2,11 @@ import React from "react";
 import UserCircle from "../../assets/UserCircle.svg";
 import PlusCircle from "../../assets/PlusCircle.svg";
 import Faders from "../../assets/Faders.svg";
+import AddTransaction from "../afterUserLogin/addtransaction.jsx";
 
-const transaction = () => {
+const Transaction = () => {
+  const [showAddTransaction, setShowAddTransaction] = React.useState(false);
+  const handleOnClose = () => setShowAddTransaction(false);
   return (
     <div className="font-Roboto">
       <nav className="bg-[#319C69] fixed w-screen inset-x-0 top-0 py-10 font-Roboto">
@@ -29,7 +32,8 @@ const transaction = () => {
               Transactions
             </div>
             <div className="flex justify-between">
-              <button className="items-center bg-[#FFFFFF] text-[#686868] flex font-normal text-base rounded-lg px-2 py-1">
+              <button onClick={() => setShowAddTransaction(true)} 
+              className="items-center bg-[#FFFFFF] text-[#686868] flex font-normal text-base rounded-lg px-2 py-1">
                   <img src={PlusCircle} alt="PlusCircle"/>
                   <div className="ml-2">Add Transaction</div>
               </button>
@@ -44,8 +48,9 @@ const transaction = () => {
           </div>
         </div>
       </div>
+      <AddTransaction onClose={handleOnClose} visible={showAddTransaction} />
     </div>
   )
 }
 
-export default transaction;
+export default Transaction;
