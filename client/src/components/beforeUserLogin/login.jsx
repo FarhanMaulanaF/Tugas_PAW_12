@@ -21,11 +21,11 @@ const Login = () => {
     textChange: "Sign In",
   });
   const { email, password1, textChange } = formData;
-  const handleChange = (text) => (e) => {
+  const handleChange = text => e => {
     setFormData({ ...formData, [text]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     console.log(process.env.REACT_APP_API_URL);
     e.preventDefault();
     if (email && password1) {
@@ -35,7 +35,7 @@ const Login = () => {
           email,
           password: password1,
         })
-        .then((res) => {
+        .then(res => {
           // Authenticate MEMBUAT SET COOKIE TOKEN (JWT SECRET)
           setIsLoading(false);
           authenticate(res, () => {
@@ -57,7 +57,7 @@ const Login = () => {
             }
           });
         })
-        .catch((err) => {
+        .catch(err => {
           setFormData({
             ...formData,
             email: "",
@@ -72,11 +72,11 @@ const Login = () => {
     }
   };
   return (
-    <div className="h-screen bg-white grid grid-cols-2 font-Roboto">
+    <div className="h-screen bg-white grid md:grid-cols-2 font-Roboto">
       <div className="bg-[#319C69] justify-center items-center flex">
         <ToastContainer />
-        <div className="w-2/3 h-2/3">
-          <h1 className="text-3xl text-white text-center  font-bold">
+        <div className="w-2/3 h-full py-16 flex-col flex items-center justify-center md:py-0 md:h-2/3">
+          <h1 className="text-xl md:text-3xl text-white text-center  font-bold">
             Nama App
           </h1>
           <img src={GambarOrang} alt="Gambar Login" className="mt-12" />
@@ -84,8 +84,8 @@ const Login = () => {
       </div>
 
       <div className="bg-white justify-center items-center flex">
-        <div className="w-2/3 h-2/3">
-          <h1 className="text-3xl text-black text-center font-bold mb-10">
+        <div className="w-2/3 h-full py-16 md:py-0 md:h-fit">
+          <h1 className="text-xl md:text-3xl text-black text-center font-bold mb-10">
             Welcome Back!
           </h1>
           <div>
@@ -95,7 +95,7 @@ const Login = () => {
                   Email
                 </label>
                 <input
-                  className="shadow border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                  className="shadow border rounded-lg w-full py-3.5 px-3 text-gray-700 leading-tight focus:outline-none"
                   id="email"
                   type="text"
                   value={email}
@@ -119,8 +119,8 @@ const Login = () => {
                   Please input a password.
                 </p> */}
               </div>
-              <div className="mb-7">
-                <Link to="/forgotpassword">
+              <div className="mb-5">
+                <Link to="/forgot-password">
                   <div className="text-sm text-right font-bold hover:underline hover:text-[#424242]">
                     Forgot password?
                   </div>

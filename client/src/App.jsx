@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/datepicker" element={<Datepicker />} />
-        <Route path="/activate-email/:token" element={<ActivateEmail />} />
+        <Route path="/users/activate/:token" element={<ActivateEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/create-new-password" element={<CreateNewPassword />} />

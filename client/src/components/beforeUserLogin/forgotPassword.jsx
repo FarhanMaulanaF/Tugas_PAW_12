@@ -4,10 +4,10 @@ import GambarOrang from "../../assets/Gambar Orang.svg";
 const ForgotPassword = () => {
   const [Submited] = useState(false);
   return (
-    <div className="h-screen bg-white grid grid-cols-2 font-Roboto">
+    <div className="h-screen bg-white grid md:grid-cols-2 font-Roboto">
       <div className="bg-[#319C69] justify-center items-center flex">
-        <div className="w-2/3 h-2/3">
-          <h1 className="text-3xl text-white text-center  font-bold">
+        <div className="w-2/3 h-full py-16 flex-col flex items-center justify-center md:py-0 md:h-2/3">
+          <h1 className="text-2xl md:text-3xl text-white text-center  font-bold">
             Nama App
           </h1>
           <img src={GambarOrang} alt="Gambar Login" className="mt-12" />
@@ -15,8 +15,8 @@ const ForgotPassword = () => {
       </div>
       <div className="bg-white justify-center items-center flex">
         {!Submited
-          ? <div className="w-2/3 h-2/3 mt-64">
-              <h1 className="text-3xl text-black text-center font-bold mb-10">
+          ? <div className="w-2/3 h-fit py-16 md:py-0">
+              <h1 className="text-2xl md:text-3xl text-black text-center font-bold mb-10">
                 Forgot your password?
               </h1>
               <div>
@@ -33,7 +33,7 @@ const ForgotPassword = () => {
                     />
                   </div>
                   <div>
-                    <button className="border rounded-lg text-white bg-[#333333] hover:bg-black w-full py-3.5">
+                    <button className="border rounded-lg text-white text-sm bg-[#333333] hover:bg-black w-full py-3.5">
                       Sent confirmation email
                     </button>
                   </div>
@@ -41,11 +41,11 @@ const ForgotPassword = () => {
                 </form>
               </div>
             </div>
-          : <div className="w-2/3 h-2/3 mt-96">
-              <h1 className="text-4xl text-black text-center font-bold mb-10">
+          : <div className="w-2/3 h-fit py-16 md:py-0">
+              <h1 className="text-3xl md:text-4xl text-black text-center font-bold mb-10">
                 Email has been sent!
               </h1>
-              <p className="text-xl text-black text-center">
+              <p className="text-lg md:text-xl text-black text-center">
                 Check your email to continue reset your password.
               </p>
             </div>}
