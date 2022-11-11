@@ -2,7 +2,7 @@ import React from "react";
 
 function Features() {
   return (
-    <div className="bg-white h-screen py-32 flex flex-col font-Roboto">
+    <div name='features' className="bg-white h-screen py-32 flex flex-col font-Roboto">
       <div className="flex flex-col item-center h-full mx-auto">
       <div className=' text-black font-black text-4xl text-center  content-center'>Features</div>
         <div className='flex text-center gap-5 items-center h-4/5 mt-20 font-medium'>

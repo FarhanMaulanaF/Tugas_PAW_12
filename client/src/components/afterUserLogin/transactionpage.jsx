@@ -6,18 +6,58 @@ import AddTransaction from "../afterUserLogin/addtransaction.jsx";
 import { useState, useEffect } from "react";
 import FadersWhite from "../../assets/FadersWhite.svg";
 import Navbar from "./navbar";
+import MapTenant from "./Dashboard/mapTenant";
+import {
+  updateUser,
+  isAuth,
+  getCookie,
+  signout,
+  updateUserImageProfile,
+} from "../../../src/helpers/auth";
+import { useNavigate } from "react-router-dom";
+
+import axios from "axios";
 const Transaction = ({ props }) => {
+  const [dataTransaksi, setData] = useState([]);
   const [showAddTransaction, setShowAddTransaction] = React.useState(false);
   const [filter, setFilter] = useState(false);
-
+  const Navigate = useNavigate();
   useEffect(() => {
     if (props == "true") {
       setShowAddTransaction(!showAddTransaction);
       console.log(filter);
     }
+    loadPost();
   }, []);
   console.log(filter);
-  const handleOnClose = () => setShowAddTransaction(false);
+  const loadPost = () => {
+    const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/readpost/${isAuth()._id}`, {
+        headers: {
+          // masih bingung gunanya headers ?
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+        setData(res.data);
+        console.log(dataTransaksi);
+      })
+      .catch((err) => {
+        // toast.error(`Error To Your Information ${err.response.statusText}`);
+        if (err.response.status === 401) {
+          signout(() => {
+            Navigate("/login");
+          });
+        }
+      });
+  };
+  const handleOnClose = () => {
+    setShowAddTransaction(false);
+    loadPost();
+  };
   return (
     <div className="font-Roboto">
       <Navbar />
@@ -89,7 +129,7 @@ const Transaction = ({ props }) => {
             )}
           </div>
           {!filter ? (
-            <></>
+            <MapTenant tenantList={dataTransaksi}></MapTenant>
           ) : (
             <div className="grid h-4/5 place-content-center font-normal text-base">
               You have no transactions.

@@ -2,7 +2,7 @@ import React from 'react'
 
 function AboutUs() {
   return (
-    <div className='bg-white pt-48 font-Roboto h-screen'>  
+    <div name='aboutus' className='bg-white pt-48 font-Roboto h-screen'>  
         <div className='ml-32 '>
             <div className='text-black font-black text-4xl content-center'>About Us</div>
             <div className="text-black text-xl font-light my-5 w-1/4">

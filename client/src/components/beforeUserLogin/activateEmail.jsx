@@ -26,33 +26,31 @@ const Activate = () => {
     show: true,
   });
 
-  useEffect(
-    () => {
-      console.log(token);
-      let test = jwt_decode(token);
-      console.log(test);
-      //get the tokeb to be send in the backend
-      if (token) {
-        setFormData({ ...formData, name, token });
-      }
-      console.log(token, name);
-    },
-    [token]
-  ); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    console.log(token);
+    let test = jwt_decode(token);
+    console.log(test);
+    //get the tokeb to be send in the backend
+    if (token) {
+      setFormData({ ...formData, name, token });
+    }
+    console.log(token, name);
+  }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
   const { name, show } = formData;
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     //send the token the activation API backend
     axios
       .post(`${process.env.REACT_APP_API_URL}/activation`, {
         token,
       })
-      .then(res => {
+      .then((res) => {
         setFormData({
           ...formData,
           show: false,
         });
+        setSubmited(true);
 
         toast.success(res.data.message);
         console.log(
@@ -64,48 +62,55 @@ const Activate = () => {
           setLoading(true);
         }, 2000);
       })
-      .catch(err => {
+      .catch((err) => {
         toast.error(err.response.data.errors);
       });
   };
 
-  const [Submited] = useState(false);
+  const [Submited, setSubmited] = useState(false);
   return (
     <div>
-      {loading
-        ? <LoadingSpinner tittle={tittle} />
-        : <div className="h-screen bg-white grid md:grid-cols-2 ">
-            <div className="bg-[#319C69] justify-center items-center flex">
-              <div className="w-2/3 h-full py-16 flex-col flex items-center justify-center md:py-0 md:h-2/3">
-                <h1 className="text-2xl md:text-3xl text-white text-center  font-bold">
-                  Nama App
+      {loading ? (
+        <LoadingSpinner tittle={tittle} />
+      ) : (
+        <div className="h-screen bg-white grid md:grid-cols-2 ">
+          <div className="bg-[#319C69] justify-center items-center flex">
+            <div className="w-2/3 h-full py-16 flex-col flex items-center justify-center md:py-0 md:h-2/3">
+              <h1 className="text-2xl md:text-3xl text-white text-center  font-bold">
+                Nama App
+              </h1>
+              <img src={GambarBoneka} alt="Gambar Login" className="mt-12" />
+            </div>
+          </div>
+          <div className="bg-white justify-center items-center flex">
+            {!Submited ? (
+              <div className="w-2/3 h-fit py-16 md:py-0">
+                <h1 className="text-2xl md:text-3xl text-black text-center font-bold mb-7">
+                  Almost done!
                 </h1>
-                <img src={GambarBoneka} alt="Gambar Login" className="mt-12" />
+                <p className="text-lg md:text-xl text-black text-center mb-7">
+                  Click the button below to activate your account.
+                </p>
+                <button
+                  onClick={handleSubmit}
+                  className="border rounded-lg text-white bg-[#333333] hover:bg-black w-full py-3.5"
+                >
+                  Activate Account
+                </button>
               </div>
-            </div>
-            <div className="bg-white justify-center items-center flex">
-              {!Submited
-                ? <div className="w-2/3 h-fit py-16 md:py-0">
-                    <h1 className="text-2xl md:text-3xl text-black text-center font-bold mb-7">
-                      Almost done!
-                    </h1>
-                    <p className="text-lg md:text-xl text-black text-center mb-7">
-                      Click the button below to activate your account.
-                    </p>
-                    <button className="border rounded-lg text-white bg-[#333333] hover:bg-black w-full py-3.5">
-                      Activate Account
-                    </button>
-                  </div>
-                : <div className="w-2/3 h-fit py-16 md:py-0">
-                    <h1 className="text-3xl md:text-4xl text-black text-center font-bold mb-10">
-                      Email has been sent!
-                    </h1>
-                    <p className="text-lg md:text-xl text-black text-center">
-                      Check your email to activate your account.
-                    </p>
-                  </div>}
-            </div>
-          </div>}
+            ) : (
+              <div className="w-2/3 h-fit py-16 md:py-0">
+                <h1 className="text-3xl md:text-4xl text-black text-center font-bold mb-10">
+                  Email has been sent!
+                </h1>
+                <p className="text-lg md:text-xl text-black text-center">
+                  Check your email to activate your account.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

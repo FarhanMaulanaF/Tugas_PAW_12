@@ -69,119 +69,11 @@ const PrivateContent = ({ history }) => {
     setFormData({ ...formData, [text]: e.target.value });
   };
 
-  // const handleSubmits = (e) => {
-  //   toast.info(
-  //     "Proses upload membutuhkan waktu. Tunggu hingga notifikasi terunggah muncul "
-  //   );
-  //   e.preventDefault();
-  //   const image = newUser.photo;
-  //   new Compressor(image, {
-  //     convertTypes: "image/png",
-  //     convertSize: 500000,
-  //     success: (compressedResult) => {
-  //       const formData = new FormData();
-  //       formData.append("file", compressedResult, compressedResult.name);
-  //       axios
-  //         .post(`${process.env.REACT_APP_API_URL}/upload`, formData)
-  //         .then((res) => {
-  //           updateUserImageProfile(res, () => {
-  //             toast.success(
-  //               "Gambar profil terupload. Jangan lupa simpan perubahan."
-  //             );
-  //           });
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //     },
-  //   });
-  // };
+
 
   const handlePhoto = (e) => {
     setNewUser({ ...newUser, photo: e.target.files[0] });
   };
-  // const handleDeleteF1 = (e) => {
-  //   let URL = "";
-  //   const { link_profil } = isAuth();
-  //   URL = link_profil;
-
-  //   axios
-  //     .post(`${process.env.REACT_APP_API_URL}/deleteImage`, {
-  //       URL,
-  //     })
-  //     .then((res) => {
-  //       let sementara = isAuth();
-  //       console.log(sementara);
-  //       console.log("TEST");
-  //       //ingin disimpan di localdata
-  //       updateUserImageProfile(res, () => {
-  //         toast.success(
-  //           "Gambar profil berhasil dihapus. Jangan lupa simpan perubahan."
-  //         );
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // const handleSubmit = (e) => {
-  //   const token = getCookie("token");
-  //   const { link_profil } = isAuth();
-
-  //   console.log(isAuth());
-  //   console.log(token);
-  //   e.preventDefault();
-  //   if (name !== "") {
-  //     if (password1 === password2) {
-  //       setFormData({ ...formData, textChange: "Submitting" });
-  //       setLoading(true);
-  //       axios
-  //         .put(
-  //           `${process.env.REACT_APP_API_URL}/user/update`,
-  //           {
-  //             name,
-  //             email,
-  //             institusi,
-
-  //             password: password1,
-  //             link_profil,
-  //           },
-  //           {
-  //             headers: {
-  //               Authorization: `Bearer ${token}`,
-  //             },
-  //           }
-  //         )
-  //         .then((res) => {
-  //           updateUser(res, () => {
-  //             loadProfile();
-  //             toast.success("Profil akun berhasil diupdate");
-
-  //             setTimeout(() => {
-  //               setLoading(false);
-  //               window.location.reload();
-  //             }, 1000);
-
-  //             setFormData({ ...formData, textChange: "Update" });
-  //           });
-  //         })
-  //         .catch((err) => {
-  //           setFormData({
-  //             ...formData,
-
-  //             institusi: "",
-  //             password1: "",
-  //             password2: "",
-  //           });
-  //           toast.error(err.response.data.error);
-  //           console.log(err.response);
-  //         });
-  //     } else {
-  //       toast.error("Kedua Password tidak sesuai");
-  //     }
-  //   } else {
-    //     toast.erro	
-  // };
 
   return (
     <div className="font-bold ">
@@ -277,54 +169,7 @@ const PrivateContent = ({ history }) => {
             >Transaksi </button>
             </Link>
           </form>
-{/* 
-          <FormFoto
-            title="Foto Profil"
-            onchange={handlePhoto}
-            // onsubmit={handleSubmits}
-          /> */}
-          {/* <form
-        className='w-full flex-1 mt-8 text-nesco-bg-blue'
-        onSubmit={handleSubmits}
-      >
-                                
 
-        <div className='mx-auto max-w-sm relative '>
-          <span className="font-medium ">
-            Upload Foto Profil
-          </span>
-
-          <input
-            type="file"
-            accept=".png, .jpg, .jpeg"
-            name="photo"
-            onChange={handlePhoto}
-          />
-          <div className=' xl:grid xl:grid-cols-2 xl:gap-3 w-full'>
-            <button
-              type='submit'
-              className='w-full xl:w-auto my-5 tracking-wide font-semibold bg-nesco-bg-blue text-gray-100 py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
-            >
-
-              <p>Upload Gambar</p>
-            </button>
-            <button type='button' className='w-full xl:w-auto my-5 tracking-wide font-semibold bg-pink-500 text-gray-100 py-4 rounded-lg hover:bg-pink-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
-              onClick={() => handleDeleteF1()}>
-              <p>Delete</p>
-            </button>
-            <button
-            onClick={handleSubmit}
-            className='flex mt-12 tracking-wide font-semibold bg-nesco-bg-blue text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out xl:hidden items-center justify-center focus:shadow-outline focus:outline-none'
-          >
-            <i className='fas fa-user-plus fa 1x w-6  -ml-2' />
-            <span className='ml-3'>{textChange}</span>
-          </button>
-          </div>
-
-        </div>
-
-
-      </form> */}
         </div>
     
     </div>

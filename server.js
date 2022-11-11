@@ -12,7 +12,7 @@ const app = express();
 
 // Connect to database
 connectDB();
-
+var morgan = require("morgan");
 // body parser
 app.use(bodyParser.json());
 // Load routes
@@ -28,7 +28,6 @@ app.use(cors());
 app.use("/api", authRouter);
 app.use("/api", postRouter);
 app.use("/api", userRouter);
-
 app.use(logger("dev"));
 app.use((req, res) => {
   res.status(404).json({

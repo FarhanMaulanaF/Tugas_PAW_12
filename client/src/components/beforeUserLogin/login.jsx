@@ -21,11 +21,11 @@ const Login = () => {
     textChange: "Sign In",
   });
   const { email, password1, textChange } = formData;
-  const handleChange = text => e => {
+  const handleChange = (text) => (e) => {
     setFormData({ ...formData, [text]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     console.log(process.env.REACT_APP_API_URL);
     e.preventDefault();
     if (email && password1) {
@@ -35,7 +35,7 @@ const Login = () => {
           email,
           password: password1,
         })
-        .then(res => {
+        .then((res) => {
           // Authenticate MEMBUAT SET COOKIE TOKEN (JWT SECRET)
           setIsLoading(false);
           authenticate(res, () => {
@@ -52,12 +52,12 @@ const Login = () => {
               navigate("/admin");
               toast.success(`Selamat datang ${res.data.user.name}!`);
             } else {
-              navigate("/beranda");
+              navigate("/dashboard");
               toast.success(`Selamat datang ${res.data.user.name}!`);
             }
           });
         })
-        .catch(err => {
+        .catch((err) => {
           setFormData({
             ...formData,
             email: "",
@@ -110,7 +110,7 @@ const Login = () => {
                 <input
                   className="shadow border rounded-lg w-full py-3.5 px-3 text-gray-700 mb-3 leading-tight focus:outline-none"
                   id="password"
-                  type="{password}"
+                  type={"password"}
                   value={password1}
                   onChange={handleChange("password1")}
                   placeholder="Enter your password"
