@@ -11,6 +11,7 @@ import Transaksi from "../src/components/User/Transaksi/Transaksi";
 import Private from "../src/components/User/AddForm/Private";
 import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
+import UserProfile from "./components/afterUserLogin/userprofile";
 
 import "./index.css";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/beranda" element={<Beranda />} />
         <Route path="/transaksi" element={<Transaksi />} />
         <Route path="/tambahtransaksi" element={<Private />} />
+        <Route path="/user" element={<UserProfile />} />
       </Routes>
     </>
   );

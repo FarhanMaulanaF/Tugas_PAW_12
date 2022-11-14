@@ -35,10 +35,12 @@ const Navbar = () => {
             SIGN OUT{" "}
           </button>
           <div className="text-base ml-5 text-white mt-auto mb-auto mr-2 ">
-            Hai, nama pengguna
+            Hai, nama pengguna!
           </div>
           <div className="static">
-            <img src={UserCircle} alt="UserCircle" />
+            <Link to="/user">
+              <img src={UserCircle} alt="UserCircle" />
+            </Link>
           </div>
         </div>
       </div>
