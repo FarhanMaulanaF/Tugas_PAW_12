@@ -1,4 +1,3 @@
-import { Datepicker } from "./components/form/datepicker";
 import Test from "./components/form/test";
 import { Routes, Route } from "react-router-dom";
 import ActivateEmail from "./page/beforeUserLogin/activateEmail";
@@ -19,8 +18,6 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/datepicker" element={<Datepicker />} />
         <Route path="/users/activate/:token" element={<ActivateEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

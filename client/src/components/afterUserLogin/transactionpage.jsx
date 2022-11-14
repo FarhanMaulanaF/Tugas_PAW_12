@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import FadersWhite from "../../assets/FadersWhite.svg";
 import Navbar from "./navbar";
 import MapTenant from "./Dashboard/mapTenant";
+import FilterSection from "../User/Transaksi/mapTenant";
+
 import {
   updateUser,
   isAuth,
@@ -21,6 +23,7 @@ const Transaction = ({ props }) => {
   const [dataTransaksi, setData] = useState([]);
   const [showAddTransaction, setShowAddTransaction] = React.useState(false);
   const [filter, setFilter] = useState(false);
+  const [click, setClicked] = useState(false);
   const Navigate = useNavigate();
   useEffect(() => {
     if (props == "true") {
@@ -28,7 +31,7 @@ const Transaction = ({ props }) => {
       console.log(filter);
     }
     loadPost();
-  }, []);
+  }, [click]);
   console.log(filter);
   const loadPost = () => {
     const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
@@ -44,6 +47,7 @@ const Transaction = ({ props }) => {
         console.log(data);
         setData(res.data);
         console.log(dataTransaksi);
+        console.log("INI ADALAH LOAD");
       })
       .catch((err) => {
         // toast.error(`Error To Your Information ${err.response.statusText}`);
@@ -63,7 +67,7 @@ const Transaction = ({ props }) => {
       <Navbar />
 
       <div className="h-screen flex font-Roboto pt-44 px-16 pb-10 text-xl">
-        <div className="bg-[#D9D9D9] text-black font-black w-full pr-5 rounded-lg">
+        <div className="bg-[#D9D9D9] h-full flex flex-col gap-5 justify-between text-black font-black w-full pr-5 rounded-lg">
           <div className="flex flex-wrap justify-between ml-5 mt-5">
             <div className="ml-10">Transactions</div>
             <div className="flex justify-between">
@@ -85,55 +89,14 @@ const Transaction = ({ props }) => {
               </button>
             </div>
           </div>
-          <div className="flex justify-between ml-5 mt">
-            {!filter ? (
-              <></>
-            ) : (
-              <div className="ml-2 mt-2 flex justify-between bg-[#319C69] p-1.5 rounded-lg w-full">
-                <label className="items-center text-[#FFFFFF] flex font-normal text-base rounded-lg px-2 py-1">
-                  <img src={FadersWhite} alt="FadersWhite" />
-                  <div className="ml-2 mr-10">Filter</div>
-                </label>
-                <select
-                  name="By Category"
-                  className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
-                >
-                  <option value="expense"> Expense </option>
-                  <option value="income"> Income </option>
-                </select>
-                <select
-                  name="By Labels"
-                  className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
-                >
-                  <option value="food and drink"> Food and Drink </option>
-                  <option value="shopping"> Shopping </option>
-                  <option value="transport"> Transport </option>
-                  <option value="entertaiment"> Entertaiment </option>
-                  <option value="family"> Family </option>
-                  <option value="others"> Others </option>
-                </select>
-                <select
-                  name="By Date Range"
-                  className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
-                >
-                  <option value="this week"> This Week </option>
-                  <option value="last week"> Last Week </option>
-                  <option value="this month"> This Month </option>
-                  <option value="last month"> Last Month </option>
-                </select>
-                <input
-                  className="text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 focus:outline-none w-2/5"
-                  placeholder="By Description"
-                />
-              </div>
-            )}
-          </div>
+
           {!filter ? (
-            <MapTenant tenantList={dataTransaksi}></MapTenant>
+            <MapTenant
+              tenantList={dataTransaksi}
+              loadPosts={setClicked}
+            ></MapTenant>
           ) : (
-            <div className="grid h-4/5 place-content-center font-normal text-base">
-              You have no transactions.
-            </div>
+            <FilterSection tenantList={dataTransaksi} />
           )}
         </div>
       </div>

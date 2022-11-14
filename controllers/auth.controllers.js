@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const jwt_decode = require("jwt-decode");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/sendEmail");
-const _ = require ('lodash');
+const _ = require("lodash");
 //Custom Error Handler
 const { errorHandler } = require("../helpers/dbErrorHandling.js");
 
@@ -202,8 +202,8 @@ exports.signinController = (req, res) => {
 
 exports.requireSignin = expressJwt({
   secret: process.env.JWT_SECRET,
-  algorithms: ["HS256"], // req.user._id
-}); //Check autorisasi token apakah sudah sesuai atau belum
+  algorithms: ["HS256"],
+});
 
 exports.forgotPasswordController = (req, res) => {
   const { email } = req.body;
@@ -282,19 +282,15 @@ exports.forgotPasswordController = (req, res) => {
                   },
                   (hasil) => {
                     if (hasil == true) {
-                      res
-                        .status(200)
-                        .json({
-                          success: true,
-                          message: ` Email reset telah dikirimkan ke alamat email ${Email}. dengan token: ${token} Pesan dapat berada di folder spam`,
-                        });
+                      res.status(200).json({
+                        success: true,
+                        message: ` Email reset telah dikirimkan ke alamat email ${Email}. dengan token: ${token} Pesan dapat berada di folder spam`,
+                      });
                     } else {
-                      res
-                        .status(500)
-                        .json({
-                          success: false,
-                          message: `Email gagal dikirimkan`,
-                        });
+                      res.status(500).json({
+                        success: false,
+                        message: `Email gagal dikirimkan`,
+                      });
                     }
                   }
                 );

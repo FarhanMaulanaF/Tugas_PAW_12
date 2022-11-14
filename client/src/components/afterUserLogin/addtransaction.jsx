@@ -56,6 +56,14 @@ const AddTransaction = ({ visible, onClose }) => {
     console.log(token);
     e.preventDefault();
 
+    if (label == "") {
+      toast.error("You have to add the label ");
+      return null;
+    } else if (kategori == "") {
+      toast.error("You have to add the kategori ");
+      return null;
+    }
+
     setFormData({ ...formData, textChange: "Submitting" });
     if (!title == "") {
       // setLoading(true);
@@ -64,6 +72,8 @@ const AddTransaction = ({ visible, onClose }) => {
           `${process.env.REACT_APP_API_URL}/addpost/${isAuth()._id}`,
           {
             title,
+            label,
+            kategori,
             pemasukan,
             deskripsi,
             pengeluaran,
@@ -79,6 +89,7 @@ const AddTransaction = ({ visible, onClose }) => {
         .then((res) => {
           console.log("Transaksi berhasil ditambahkan");
           console.log(res);
+          toast.success("Transaksi berhasil ditambahkan");
           onClose();
           setFormData({ ...formData, textChange: "Update" });
         })

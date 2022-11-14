@@ -1,6 +1,6 @@
 import React from "react";
 import Illustration from "../../assets/Illustration.png";
-
+import { Link } from "react-router-dom";
 function Homepage() {
   return (
     <div className="bg-[#319C69] h-screen font-Roboto">
@@ -12,19 +12,19 @@ function Homepage() {
         <div className="mr-32 my-10">
           <ul className="flex font-semibold text-lg space-x-14">
             <li>
-              {" "}<a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/features">Features</a>
+              <Link to="features">Features</Link>
             </li>
             <li>
-              <a href="/about-us">About Us</a>
+              <Link to="about-us">About Us</Link>
             </li>
             <li>
-              <a href="/login">Login</a>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-              <a href="/register">Register</a>
+              <Link to="/signup">Register</Link>
             </li>
           </ul>
         </div>
