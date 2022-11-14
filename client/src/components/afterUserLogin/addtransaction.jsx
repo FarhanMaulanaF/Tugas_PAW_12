@@ -110,16 +110,15 @@ const AddTransaction = ({ visible, onClose }) => {
       id="container"
       className="font-Roboto fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
     >
-      <div className="bg-white p-5 rounded-lg w-[24rem] h-3/5 flex flex-col">
+      <div className="bg-white p-5 rounded-lg w-[22rem] h-[28rem] flex flex-col">
         <ToastContainer />
         <div className="font-bold text-xl">Add Transaction</div>
-        <div className="flex flex-col mt-3 items-center">
-          <div className="w-5/6"></div>
+        <div className="flex items-center">
           <form onSubmit={handleSubmit}>
             <select
               name="By Labels"
               onChange={handleChange("label")}
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700 focus:outline-none"
+              className="py-1 px-2 mt-4 w-full border border-black rounded-lg text-gray-700 focus:outline-none"
             >
               <option value="" disabled selected hidden>
                 Label
@@ -130,7 +129,7 @@ const AddTransaction = ({ visible, onClose }) => {
             <select
               name="By Date Range"
               onChange={handleChange("kategori")}
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700 focus:outline-none"
+              className="py-1 px-2 mt-4 w-full border border-black rounded-lg text-gray-700 focus:outline-none"
             >
               <option value="" disabled selected hidden>
                 Category
@@ -153,15 +152,15 @@ const AddTransaction = ({ visible, onClose }) => {
               )}
             </select>
             <input
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700"
+              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
               id="amount"
               type="text"
               value={title}
-              placeholder="title"
+              placeholder="Title"
               onChange={handleChange("title")}
             ></input>
             <input
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700"
+              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
               id="amount"
               type="number"
               value={pengeluaran}
@@ -169,7 +168,7 @@ const AddTransaction = ({ visible, onClose }) => {
               onChange={handleChange("pengeluaran")}
             ></input>
             <input
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700"
+              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
               id="amount"
               type="number"
               value={pemasukan}
@@ -178,7 +177,7 @@ const AddTransaction = ({ visible, onClose }) => {
             ></input>
             <input
               value={deskripsi}
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700"
+              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
               id="description"
               onChange={handleChange("deskripsi")}
               type="text"
@@ -186,22 +185,22 @@ const AddTransaction = ({ visible, onClose }) => {
             ></input>
             <input
               type="date"
-              className="py-0.5 px-2 mt-4 w-5/6 border border-black rounded-lg text-gray-700"
+              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
               onChange={handleChange("date")}
             />
-            <button
-              type="submit"
-              className="bg-[#319C69] hover:bg-green-800 text-white mt-4 w-1/3 py-1 rounded"
-            >
-              Done
-            </button>
-            <div className="flex w-5/6 justify-between">
+            <div className="flex mt-2 justify-end">
               <button
-                type="button"
-                onClick={onClose}
-                className="bg-black hover:bg-green-800 text-white mt-4 w-1/3 py-1 rounded"
+              type="button"
+              onClick={onClose}
+              className="bg-[#D9D9D9] hover:bg-gray-400 text-black mt-4 mr-4 w-1/3 py-1 rounded"
               >
                 Cancel
+              </button>
+              <button
+              type="submit"
+              className="bg-[#319C69] hover:bg-green-800 text-white mt-4 w-1/3 py-1 rounded"
+              >
+                Done
               </button>
             </div>
           </form>

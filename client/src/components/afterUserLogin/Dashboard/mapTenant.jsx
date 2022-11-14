@@ -19,12 +19,16 @@ const Tenant = ({ tenantList, categoryName, loadPosts }) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="flex flex-col overflow-y-scroll h-full w-full items-center pt-1 pb-5">
+    <div className="flex flex-col overflow-y-scroll h-full w-full mb-5 items-center pt-1 pb-5">
       {tenantList && (
         <>
-          <p className="text-fgmBlack mt-2 mb-2">
-            terdapat {tenantList.length} transaksi
+          {tenantList.length === 0 && (
+          <>
+            <p className="font-normal text-base mt-28 mb-2 ${{tenantList.length} === 0 ? 'block' : 'hidden'}">
+            No transaction to display.
           </p>
+          </>
+          )}
           <div className="flex flex-col w-full p-5 ">
             {tenantList.map((item) => {
               if (compareDates("2022-10-03", item.date) === false) {

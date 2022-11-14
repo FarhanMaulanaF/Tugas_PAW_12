@@ -25,13 +25,13 @@ const Transaction = ({ props }) => {
   const [filter, setFilter] = useState(false);
   const [click, setClicked] = useState(false);
   const Navigate = useNavigate();
-  useEffect(() => {
+  /*useEffect(() => {
     if (props == "true") {
       setShowAddTransaction(!showAddTransaction);
       console.log(filter);
     }
     loadPost();
-  }, [click]);
+  }, [click]);*/
   console.log(filter);
   const loadPost = () => {
     const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
@@ -64,16 +64,15 @@ const Transaction = ({ props }) => {
   };
   return (
     <div className="font-Roboto">
-      <Navbar />
-
-      <div className="h-screen flex font-Roboto pt-44 px-16 pb-10 text-xl">
-        <div className="bg-[#D9D9D9] h-full flex flex-col gap-5 justify-between text-black font-black w-full pr-5 rounded-lg">
+      <Navbar/>
+      <div className="bg-[#F3F3F3] h-screen flex font-Roboto pt-28 px-16 pb-10 text-xl">
+        <div className="bg-white h-full flex flex-col gap-5 justify-between text-[#333333] font-black w-full pr-5 rounded-lg">
           <div className="flex flex-wrap justify-between ml-5 mt-5">
-            <div className="ml-10">Transactions</div>
+            <div className="ml">Transactions</div>
             <div className="flex justify-between">
               <button
                 onClick={() => setShowAddTransaction(true)}
-                className="items-center bg-[#FFFFFF] text-[#686868] flex font-normal text-base rounded-lg px-2 py-1"
+                className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-base rounded-lg px-2 py-1"
               >
                 <img src={PlusCircle} alt="PlusCircle" />
                 <div className="ml-2">Add Transaction</div>
@@ -82,14 +81,13 @@ const Transaction = ({ props }) => {
                 onClick={(e) => {
                   setFilter(!filter);
                 }}
-                className="items-center bg-[#FFFFFF] text-[#686868] flex font-normal text-base rounded-lg ml-5 px-2 py-1"
+                className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-base rounded-lg ml-5 px-2 py-1"
               >
-                <img src={Faders} alt="Faders" />
+                <img src={FadersWhite} alt="Faders" />
                 <div className="ml-2">Filter</div>
               </button>
             </div>
           </div>
-
           {!filter ? (
             <MapTenant
               tenantList={dataTransaksi}
