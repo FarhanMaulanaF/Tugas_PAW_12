@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemTenant from "./ItemTenant";
 
 const Tenant = ({ tenantList, categoryName, loadPosts }) => {
+  const [DateBefore, setDateBefore] = useState(0);
   const compareDates = (d1, d2) => {
     let date1 = new Date(d1).getTime();
     let date2 = new Date(d2).getTime();
@@ -14,7 +15,15 @@ const Tenant = ({ tenantList, categoryName, loadPosts }) => {
       return true;
     }
   };
-  useEffect(() => {}, []);
+
+  const getDataDateFilter = (DateBefore) => {
+
+    var today = new Date();
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - DateBefore);
+    return nextweek;
+  }
+
+  useEffect(() => { }, []);
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -23,16 +32,17 @@ const Tenant = ({ tenantList, categoryName, loadPosts }) => {
       {tenantList && (
         <>
           {tenantList.length === 0 && (
-          <>
-            <p className="font-normal text-base mt-28 mb-2 ${{tenantList.length} === 0 ? 'block' : 'hidden'}">
-            No transaction to display.
-          </p>
-          </>
+            <>
+              <p className="font-normal text-base mt-28 mb-2 ${{tenantList.length} === 0 ? 'block' : 'hidden'}">
+                No transaction to display.
+              </p>
+            </>
           )}
           <div className="flex flex-col w-full p-5 ">
             {tenantList.map((item) => {
               if (compareDates("2022-10-03", item.date) === false) {
-                console.log(compareDates("2022-10-03", item.date));
+                console.log(getDataDateFilter(7));
+                console.log(compareDates(getDataDateFilter(7), "2022-11-22"));
                 return (
                   <ItemTenant
                     key={item.id_tenant}

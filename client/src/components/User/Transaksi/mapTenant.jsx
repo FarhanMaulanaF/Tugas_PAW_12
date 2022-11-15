@@ -8,6 +8,29 @@ const Tenant = ({ tenantList, categoryName }) => {
   const [searchValue, setSearchValue] = useState("");
   const [labelValue, setLabelValue] = useState("");
   const [categoryValue, setCategoryValue] = useState("");
+  const [categoryDate, setCategoryDate] = useState("0");
+
+
+  const compareDates = (d1, d2) => {
+    let date1 = new Date(d1).getTime();
+    let date2 = new Date(d2).getTime();
+
+    if (date1 < date2) {
+      return false;
+    } else if (date1 > date2) {
+      return true;
+    } else {
+      return true;
+    }
+  };
+
+  const getDataDateFilter = (DateBefore) => {
+
+    var today = new Date();
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - parseInt(DateBefore));
+    return nextweek;
+  }
+
 
   console.log(tenantList);
   let listItem;
@@ -31,6 +54,7 @@ const Tenant = ({ tenantList, categoryName }) => {
 
       console.log(listItem);
     }
+
   }
   const handleChangeLabel = (e) => {
     setLabelValue(e.target.value);
@@ -39,6 +63,10 @@ const Tenant = ({ tenantList, categoryName }) => {
   const handleChangeCategory = (e) => {
     setCategoryValue(e.target.value);
     console.log(categoryValue);
+  };
+  const handleCategoryDate = (e) => {
+    setCategoryDate(e.target.value);
+    console.log(categoryDate);
   };
   function searchHandler(event) {
     setSearchValue(event.target.value);
@@ -81,13 +109,14 @@ const Tenant = ({ tenantList, categoryName }) => {
             <option value="others"> Others </option>
           </select>
           <select
+            onChange={handleCategoryDate}
             name="By Date Range"
             className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
           >
-            <option value="this week"> This Week </option>
-            <option value="last week"> Last Week </option>
-            <option value="this month"> This Month </option>
-            <option value="last month"> Last Month </option>
+            <option value="7"> This Week </option>
+            <option value="14"> Last Week </option>
+            <option value="31"> This Month </option>
+            <option value="62"> Last Month </option>
           </select>
 
           <input
@@ -99,15 +128,21 @@ const Tenant = ({ tenantList, categoryName }) => {
         </div>
       </div>
       <div className="flex h-full overflow-scroll flex-col w-full items-center pt-5 pb-20">
-        {listItem && (
-          <>
-            <div className="flex flex-col w-full p-5 ">
-              {listItem.map((item) => (
-                <ItemTenant key={item.id_tenant} itemData={item} />
-              ))}
-            </div>
-          </>
-        )}
+        {listItem.map((item) => {
+          if (compareDates(getDataDateFilter(categoryDate), item.date) === false) {
+            console.log(getDataDateFilter(7));
+            console.log(compareDates(getDataDateFilter(7), "2022-11-22"));
+            return (
+              <ItemTenant
+                key={item.id_tenant}
+
+                itemData={item}
+              />
+            );
+          } else {
+            return <></>;
+          }
+        })}
       </div>
     </>
   );

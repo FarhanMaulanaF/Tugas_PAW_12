@@ -12,13 +12,13 @@ function Homepage() {
         <div className="mr-32 my-10">
           <ul className="flex font-semibold text-lg space-x-14">
             <li>
-              <Link to="/">Home</Link>
+              <a to="/">Home</a>
             </li>
             <li>
-              <Link to="features">Features</Link>
+              <a href="#section-2" to="features">Features</a>
             </li>
             <li>
-              <Link to="about-us">About Us</Link>
+              <a href="#section-3" to="about-us">About Us</a>
             </li>
             <li>
               <Link to="/login">Login</Link>
@@ -31,7 +31,7 @@ function Homepage() {
       </div>
 
       {/* Pristin Content */}
-      <div className="flex justify-between items-center pt-12">
+      <div id="section-1" className="flex justify-between items-center pt-12">
         <div>
           <div className="text-white text-6xl font-black ml-32">Pristin</div>
 

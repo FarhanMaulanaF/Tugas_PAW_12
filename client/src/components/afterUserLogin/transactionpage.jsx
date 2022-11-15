@@ -25,13 +25,13 @@ const Transaction = ({ props }) => {
   const [filter, setFilter] = useState(false);
   const [click, setClicked] = useState(false);
   const Navigate = useNavigate();
-  /*useEffect(() => {
+  useEffect(() => {
     if (props == "true") {
       setShowAddTransaction(!showAddTransaction);
       console.log(filter);
     }
     loadPost();
-  }, [click]);*/
+  }, [click]);
   console.log(filter);
   const loadPost = () => {
     const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
@@ -64,7 +64,7 @@ const Transaction = ({ props }) => {
   };
   return (
     <div className="font-Roboto">
-      <Navbar/>
+      <Navbar />
       <div className="bg-[#F3F3F3] h-screen flex font-Roboto pt-28 px-16 pb-10 text-xl">
         <div className="bg-white h-full flex flex-col gap-5 justify-between text-[#333333] font-black w-full pr-5 rounded-lg">
           <div className="flex flex-wrap justify-between ml-5 mt-5">
