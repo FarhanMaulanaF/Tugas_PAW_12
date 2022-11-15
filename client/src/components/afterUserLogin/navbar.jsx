@@ -30,7 +30,7 @@ const Navbar = () => {
                 Navigate("/");
               });
             }}
-            className="border-white border-2 rounded-md px-2 text-white"
+            className="border-white border-2 rounded-md px-2 text-white hover:bg-green-800"
           >
             SIGN OUT{" "}
           </button>

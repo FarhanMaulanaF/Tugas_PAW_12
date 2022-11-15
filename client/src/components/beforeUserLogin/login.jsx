@@ -77,7 +77,7 @@ const Login = () => {
         <ToastContainer />
         <div className="w-2/3 h-full py-16 flex-col flex items-center justify-center md:py-0 md:h-2/3">
           <h1 className="text-2xl md:text-3xl text-white text-center  font-bold">
-            Nama App
+            Pristin
           </h1>
           <img src={GambarOrang} alt="Gambar Login" className="mt-12" />
         </div>
@@ -86,7 +86,7 @@ const Login = () => {
       <div className="bg-white justify-center items-center flex">
         <div className="w-2/3 h-full py-16 md:py-0 md:h-fit">
           <h1 className="text-2xl md:text-3xl text-black text-center font-bold mb-10">
-            Welcome Back!
+            Welcome back!
           </h1>
           <div>
             <form onSubmit={handleSubmit}>

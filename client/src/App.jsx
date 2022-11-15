@@ -31,7 +31,7 @@ function App() {
         <Route path="/beranda" element={<Beranda />} />
         <Route path="/transaksi" element={<Transaksi />} />
         <Route path="/tambahtransaksi" element={<Private />} />
-        <Route path="/user" element={<UserProfile />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </>
   );
