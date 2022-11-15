@@ -43,7 +43,7 @@ exports.registerController = (req, res) => {
         const message = `
    <p>Hai, ${name} </p>
 
-         <p> Anda telah melakukan registrasi untuk akun Revogy 2022.</p>
+         <p> Anda telah melakukan registrasi untuk akun Pristine App.</p>
          <p> Klik tombol di bawah untuk mengaktifkan akun anda: </p>
          <tr>
          <td>
@@ -59,18 +59,13 @@ exports.registerController = (req, res) => {
          </td>
      </tr>
    </table>
-         <p>Agar tetap terhubung dengan kami, silahkan ikuti akun Instagram kami. Jika Anda masih memiliki pertanyaan terkait dengan acara dan perlombaan, 
-         silahkan segera menghubungi contact person kami di:</p>
-         <p>yyy - 0811111 </p>
-
-         <p><b>Salam,</b></p>
-         <p>Panitia Revogy 2022</p>`;
+        `;
 
         try {
           sendEmail(
             {
               to: Email,
-              subject: "Aktivasi Akun Money Tracker App ",
+              subject: "Aktivasi Akun Pristine App ",
               text: message,
             },
             (hasil) => {
@@ -244,7 +239,7 @@ exports.forgotPasswordController = (req, res) => {
     <td>
         <table cellspacing="0" cellpadding="0">
             <tr>
-                <td style="border-radius: 2px;" bgcolor="#9e00f6">
+                <td style="border-radius: 2px;" bgcolor="#319C69">
                     <a href="${process.env.CLIENT_URL}/users/password/reset/${token}" target="_blank" style="padding: 8px 12px; border: 1px solid #9e00f6;border-radius: 2px;font-family: Helvetica, Arial, sans-serif;font-size: 14px; color: #ffffff;text-decoration: none;font-weight:bold;display: inline-block;">
                         Reset Password           
                     </a>
@@ -254,12 +249,7 @@ exports.forgotPasswordController = (req, res) => {
     </td>
 </tr>
 </table>
-        <p>Agar tetap terhubung dengan kami, silahkan ikuti akun Instagram kami. Jika Anda masih memiliki pertanyaan terkait dengan acara dan perlombaan, 
-        silahkan segera menghubungi contact person kami di:</p>
-        <p>yy - zzzzz </p>
-        
-        <p><b>Salam,</b></p>
-        <p>Panitia Revogy 2022</p>`;
+        `;
         //test
         return user.updateOne(
           {
@@ -277,7 +267,7 @@ exports.forgotPasswordController = (req, res) => {
                 sendEmail(
                   {
                     to: Email,
-                    subject: "Reset password Revogy 2022 ",
+                    subject: "Reset password Pristie Money Tracker App ",
                     text: message,
                   },
                   (hasil) => {

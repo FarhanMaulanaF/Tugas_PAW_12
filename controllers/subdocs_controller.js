@@ -16,6 +16,8 @@ exports.addInitialValue = async (req, res) => {
         res.sendStatus(404).send("User was not found").end();
       } else {
         console.log(req.body);
+        console.log(req.body.isHavingInit);
+        result.isHavingInit = req.body.isHavingInit;
         result.tabungan = parseInt(req.body.initialValue);
         result.save(function (saveerr, saveresult) {
           if (!saveerr) {

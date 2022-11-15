@@ -15,6 +15,8 @@ import PlusCircle from "../../assets/PlusCircle.svg";
 import CheckCircle from "../../assets/CheckCircle (1).png";
 import Navbar from "./navbar";
 
+import { ToastContainer, toast } from "react-toastify";
+
 const Dashboard = () => {
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
@@ -40,12 +42,13 @@ const Dashboard = () => {
     pengeluaran: "",
     link_profil: "",
     initialValue: "",
+    isHavingInit: "",
   });
   const [newUser, setNewUser] = useState({
     photo: "",
   });
 
-  const { initialValue } = formData;
+  const { initialValue, isHavingInit } = formData;
 
   useEffect(() => {
     loadProfile();
@@ -71,6 +74,7 @@ const Dashboard = () => {
           pemasukan,
           pengeluaran,
           tabungan,
+          isHavingInit,
         } = res.data;
         setFormData({
           ...formData,
@@ -82,6 +86,7 @@ const Dashboard = () => {
           pengeluaran,
           tabungan,
           link_profil,
+          isHavingInit,
         });
       })
       .catch((err) => {
@@ -119,11 +124,16 @@ const Dashboard = () => {
   };
   const AddInitalValue = () => {
     const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
+    if (initialValue < 0) {
+      return toast.error("Nominal harus lebih dari sama dengan 0");
+    }
+    const isHavingInit = true;
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/addinitial/${isAuth()._id}`,
         {
           initialValue,
+          isHavingInit,
         },
         {
           headers: {
@@ -156,53 +166,61 @@ const Dashboard = () => {
 
       <div className="h-screen flex font-Roboto pt-44 px-16 pb-10 text-xl">
         <div className="text-black font-black w-2/3 pr-5">
+          <ToastContainer />
           <div className="bg-[#D9D9D9] h-[25%] rounded-lg flex justify-between px-5 w-full">
             <div className=" flex justify-between pl-5 pr-24 w-full">
               <div className="mt-5 ml-4 items-center w-fit ">
                 Your Money
                 <div className="h-3/5 place-items-start flex items-center">
-                  {!startBalance ? (
+                  {!isHavingInit ? (
                     <>
-                      <button
-                        onClick={(e) => setStartingBalance(true)}
-                        className=" bg-[#319C69]   place-items-start rounded-md px-2 py-1 items-center text-white flex font-normal text-base"
-                      >
-                        <img
-                          className="mr-1 "
-                          src={PlusCircle}
-                          alt="PlusCircle"
-                        />
-                        <div className="bg-[#319C69] flex  ">
-                          Add your starting balance
+                      {" "}
+                      {!startBalance ? (
+                        <>
+                          <button
+                            onClick={(e) => setStartingBalance(true)}
+                            className=" bg-[#319C69]   place-items-start rounded-md px-2 py-1 items-center text-white flex font-normal text-base"
+                          >
+                            <img
+                              className="mr-1 "
+                              src={PlusCircle}
+                              alt="PlusCircle"
+                            />
+                            <div className="bg-[#319C69] flex  ">
+                              Add your starting balance
+                            </div>
+                          </button>
+                        </>
+                      ) : (
+                        <div className="bg-[#319C69] text-base font-normal justify-between focus:border-none rounded-md  w-[20rem] h-[40%] flex py-[0.30rem] px-2 ">
+                          <form
+                            onSubmit={AddInitalValue}
+                            className="flex w-full justify-between"
+                          >
+                            <input
+                              placeholder="Input your starting balance"
+                              onChange={handleChange("initialValue")}
+                              value={initialValue}
+                              type="number"
+                              className="bg-white rounded-md w-[80%] px-2 h-full"
+                            ></input>
+                            <button type="submit" className="h-fit">
+                              <img
+                                className="h-6 cursor-pointer"
+                                src={CheckCircle}
+                              ></img>
+                            </button>
+                            <img
+                              onClick={(e) => setStartingBalance(false)}
+                              className="cursor-pointer"
+                              src={CheckCircle}
+                            ></img>
+                          </form>
                         </div>
-                      </button>
+                      )}
                     </>
                   ) : (
-                    <div className="bg-[#319C69] text-base font-normal justify-between focus:border-none rounded-md  w-[20rem] h-[40%] flex py-[0.30rem] px-2 ">
-                      <form
-                        onSubmit={AddInitalValue}
-                        className="flex w-full justify-between"
-                      >
-                        <input
-                          placeholder="Input your starting balance"
-                          onChange={handleChange("initialValue")}
-                          value={initialValue}
-                          type="number"
-                          className="bg-white rounded-md w-[80%] px-2 h-full"
-                        ></input>
-                        <button type="submit" className="h-fit">
-                          <img
-                            className="h-6 cursor-pointer"
-                            src={CheckCircle}
-                          ></img>
-                        </button>
-                        <img
-                          onClick={(e) => setStartingBalance(false)}
-                          className="cursor-pointer"
-                          src={CheckCircle}
-                        ></img>
-                      </form>
-                    </div>
+                    <div>{tabungan}</div>
                   )}
                 </div>
               </div>
