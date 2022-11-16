@@ -2,70 +2,173 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import { authenticate, isAuth } from "../../helpers/auth";
+
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import {
+  updateUser,
+  isAuth,
+  getCookie,
+  signout,
+  updateUserImageProfile,
+} from "../../helpers/auth";
+
 import UserCircle from "../../assets/UserCircle.svg";
 
 const UserProfile = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    if (isAuth()) {
-      navigate("/beranda");
-    }
-  });
+  const [loading, setLoading] = useState(true);
+  const tittle = "Loading";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password1: "",
-    password2: "",
-  });
+    textChange: "Update",
+    institusi: "",
+    role: "",
 
-  const { name, email, password1, password2 } = formData;
+    link_profil: "",
+  });
+  const [newUser, setNewUser] = useState({
+    photo: "",
+  });
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    loadProfile();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const loadProfile = () => {
+    const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
+        headers: {
+          // masih bingung gunanya headers ?
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        // setLoading(false);
+        const { role, name, email, link_profil } = res.data;
+        setFormData({ ...formData, role, name, email, link_profil });
+      })
+      .catch((err) => {
+        toast.error(`Error To Your Information ${err.response.statusText}`);
+        if (err.response.status === 401) {
+          signout(() => {
+            navigate("/login");
+          });
+        }
+      });
+  };
+  const {
+    name,
+    email,
+    password1,
+    password2,
+    textChange,
+    institusi,
+    link_profil,
+    role,
+  } = formData;
   const handleChange = (text) => (e) => {
     setFormData({ ...formData, [text]: e.target.value });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name && email && password1) {
-      if (password1 === password2) {
-        setFormData({ ...formData });
-        axios
-          .post(`${process.env.REACT_APP_API_URL}/register`, {
-            name,
-            email,
-            password: password1,
-          })
-          .then((res) => {
-            setSubmited(true);
-            setFormData({
-              ...formData,
-              name: "",
-              email: "",
-              password1: "",
-              password2: "",
-            });
 
-            toast.success(res.data.message);
+  const handleSubmits = (e) => {
+    toast.info(
+      "Proses upload membutuhkan waktu. Tunggu hingga notifikasi terunggah muncul "
+    );
+    const token = getCookie("token");
+    console.log(token);
+    e.preventDefault();
+    const image = newUser.photo;
+
+    const formData = new FormData();
+    formData.append("file", image);
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`, //apakah berhubungan dengan JWT ? yea ternyata berhubungan pada JWT_SECRET require Sign-in
+        },
+      })
+      .then((res) => {
+        updateUserImageProfile(res, () => {
+          toast.success(
+            "Gambar profil terupload. Jangan lupa simpan perubahan."
+          );
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handlePhoto = (e) => {
+    setNewUser({ ...newUser, photo: e.target.files[0] });
+  };
+
+  const handleSubmit = (e) => {
+    const token = getCookie("token");
+    const { link_profil } = isAuth();
+
+    console.log(isAuth());
+    console.log(token);
+    e.preventDefault();
+    if (name !== "") {
+      if (password1 === password2) {
+        setFormData({ ...formData, textChange: "Submitting" });
+        setLoading(true);
+        axios
+          .put(
+            `${process.env.REACT_APP_API_URL}/user/update/${isAuth()._id}`,
+            {
+              name,
+              email,
+              institusi,
+
+              password: password1,
+              link_profil,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then((res) => {
+            updateUser(res, () => {
+              loadProfile();
+              toast.success("Profil akun berhasil diupdate");
+
+              setTimeout(() => {
+                setLoading(false);
+                window.location.reload();
+              }, 1000);
+
+              setFormData({ ...formData, textChange: "Update" });
+            });
           })
           .catch((err) => {
             setFormData({
               ...formData,
-              name: "",
-              email: "",
+
+              institusi: "",
               password1: "",
               password2: "",
             });
+            toast.error(err.response.data.error);
             console.log(err.response);
-            toast.error(err.response.data.errors);
           });
       } else {
-        toast.error("Password tidak sesuai");
+        toast.error("Kedua Password tidak sesuai");
       }
     } else {
-      toast.error("Isikan seluruh informasi yang dibutuhkan");
+      toast.error("Nama tidak boleh kosong");
     }
   };
+
   const [Submited, setSubmited] = useState(false);
   return (
     <div className="font-Roboto">
@@ -73,14 +176,31 @@ const UserProfile = () => {
       <div className="bg-[#F3F3F3] h-screen font-Roboto pt-28 px-16 pb-10">
         <div className="bg-white h-full grid md:grid-cols-2 gap-5 justify-between text-[#333333] w-full p-5 rounded-lg">
           <div className="items-center flex flex-col">
-            <img src={UserCircle}  alt="UserCircle"
+            <img
+              src={link_profil}
+              alt="UserCircle"
               className="w-60 h-60 mt-20 bg-[#319C69] rounded-full shadow"
             />
-            <button className="items-center px-4 py-1 mt-5 rounded-md border-2 border-[#319C69] bg-white hover:bg-gray-200">
-              Upload New Photo
-            </button>
+            <form onSubmit={handleSubmits}>
+              <input
+                className="text-white sm:w-fit w-2/3"
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                name="photo5"
+                onChange={handlePhoto}
+              />
+              <button
+                type="submit"
+                className="items-center px-4 py-1 mt-5 rounded-md border-2 border-[#319C69] bg-white hover:bg-gray-200"
+              >
+                Upload New Photo
+              </button>
+            </form>
           </div>
-          <form className="bg-white m-10 justify-center items-center" onSubmit={handleSubmit}>
+          <form
+            className="bg-white m-10 justify-center items-center"
+            onSubmit={handleSubmit}
+          >
             <div className="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2">
                 Name
@@ -111,7 +231,7 @@ const UserProfile = () => {
               </label>
               <input
                 className="shadow border font-normal rounded-lg w-full py-3.5 px-3 text-gray-700 leading-tight focus:outline-none"
-                id="password"
+                id="password1"
                 type="password"
                 onChange={handleChange("password1")}
                 placeholder="Enter your password"
@@ -123,15 +243,19 @@ const UserProfile = () => {
               </label>
               <input
                 className="shadow border font-normal rounded-lg w-full py-3.5 px-3 text-gray-700 leading-tight focus:outline-none"
-                id="password"
+                id="password2"
                 type="password"
                 placeholder="Confirm your password"
                 onChange={handleChange("password2")}
               />
             </div>
             <div className="justify-end flex">
-              <button className="items-center px-4 py-2 mt-5 rounded-md text-white bg-[#319C69] hover:bg-green-800">
-              Update Profile </button>
+              <button
+                type="submit"
+                className="items-center px-4 py-2 mt-5 rounded-md text-white bg-[#319C69] hover:bg-green-800"
+              >
+                Update Profile{" "}
+              </button>
             </div>
           </form>
         </div>

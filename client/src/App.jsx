@@ -12,6 +12,7 @@ import Private from "../src/components/User/AddForm/Private";
 import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
 import UserProfile from "./components/afterUserLogin/userprofile";
+import PrivateRoute from "./routes/PrivateRoute";
 
 import "./index.css";
 
@@ -23,15 +24,20 @@ function App() {
         <Route path="/users/activate/:token" element={<ActivateEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/create-new-password" element={<CreateNewPassword />} />
+        <Route
+          path="/users/password/reset/:token"
+          element={<CreateNewPassword />}
+        />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/transaction" element={<Transaction />} />
-        <Route path="/transactions" element={<Transaction props="true" />} />
-        <Route path="/beranda" element={<Beranda />} />
-        <Route path="/transaksi" element={<Transaksi />} />
-        <Route path="/tambahtransaksi" element={<Private />} />
-        <Route path="/profile" element={<UserProfile />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/transaction" element={<Transaction />} />
+          <Route path="/transactions" element={<Transaction props="true" />} />
+          <Route path="/beranda" element={<Beranda />} />
+          <Route path="/transaksi" element={<Transaksi />} />
+          <Route path="/tambahtransaksi" element={<Private />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Route>
       </Routes>
     </>
   );

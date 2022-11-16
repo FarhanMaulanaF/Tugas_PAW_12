@@ -38,7 +38,7 @@ const Navbar = () => {
             Hai, nama pengguna!
           </div>
           <div className="static">
-            <Link to="/user">
+            <Link to="/profile">
               <img src={UserCircle} alt="UserCircle" />
             </Link>
           </div>

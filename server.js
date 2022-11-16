@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 const authRouter = require("./routes/auth.route");
 const postRouter = require("./routes/posts.route");
 const userRouter = require("./routes/user.route");
+const imageRouter = require("./routes/image-route");
 
 // Dev Logginf Middleware
 
@@ -28,6 +29,8 @@ app.use(cors());
 app.use("/api", authRouter);
 app.use("/api", postRouter);
 app.use("/api", userRouter);
+app.use("/api", imageRouter);
+
 app.use(logger("dev"));
 app.use((req, res) => {
   res.status(404).json({
