@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (isAuth()) {
-      navigate("/beranda");
+      navigate("/dashboard");
     }
   });
 

@@ -13,14 +13,14 @@ import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
 import UserProfile from "./components/afterUserLogin/userprofile";
 import PrivateRoute from "./routes/PrivateRoute";
-import PageChart from "./testChart/Page";
+import PageChart from "./components/chart/page/BarData";
 import "./index.css";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<PageChart />} />
+        <Route path="/" element={<Home />} />
         <Route path="/users/activate/:token" element={<ActivateEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

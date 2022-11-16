@@ -14,6 +14,7 @@ import UserCircle from "../../assets/UserCircle.svg";
 import PlusCircle from "../../assets/PlusCircle.svg";
 import CheckCircle from "../../assets/CheckCircle (1).png";
 import Navbar from "./navbar";
+import BarData from "../chart/page/BarData";
 
 import { ToastContainer, toast } from "react-toastify";
 
@@ -30,7 +31,7 @@ const Dashboard = () => {
   const tittle = "Loading";
   const [dataTransaksi, setData] = useState([]);
   const [startBalance, setStartingBalance] = useState(false);
-
+  const [isRendered, setRendered] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -51,6 +52,7 @@ const Dashboard = () => {
   const { initialValue, isHavingInit } = formData;
 
   useEffect(() => {
+    setTimeout(() => { setRendered(true) }, 1000);
     loadProfile();
     loadPost();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -112,6 +114,9 @@ const Dashboard = () => {
         console.log(data);
         setData(res.data);
         console.log(dataTransaksi);
+
+
+        console.log("test iin adalah useEffect")
       })
       .catch((err) => {
         // toast.error(`Error To Your Information ${err.response.statusText}`);
@@ -252,9 +257,9 @@ const Dashboard = () => {
           </div>
         </div>
         <div className=" text-black font-black bg-[#D9D9D9] w-1/3 rounded-lg">
-          <div className="pl-10">Statistics</div>
-          <div className="grid h-4/5 place-items-center font-extralight text-base">
-            No statictics to display.
+          <div className="pl-10 mt-5">Statistics</div>
+          <div className="flex w-[95%] h-4/5 justify-center items-center font-extralight text-base pl-5">
+            {isRendered ? <>  <BarData pemasukan={pemasukan} pengeluaran={pengeluaran} /></> : <></>}
           </div>
         </div>
       </div>
