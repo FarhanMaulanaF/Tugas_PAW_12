@@ -76,16 +76,16 @@ const Tenant = ({ tenantList, categoryName }) => {
 
   return (
     <>
-      <div className="flex justify-between   ml-5 mt">
-        <div className="ml-2 mt-2 flex justify-between bg-[#319C69] p-1.5 rounded-lg w-full">
-          <label className="items-center text-[#FFFFFF] flex font-normal text-base rounded-lg px-2 py-1">
+      <div className="ml-5">
+        <div className="mt-2 grid md:flex md:justify-between bg-[#319C69] p-2 rounded-lg w-full md:h-12">
+          <label className="items-center text-white flex font-normal text-base rounded-lg px-2 py-1">
             <img src={FadersWhite} alt="FadersWhite" />
             <div className="ml-2 mr-10">Filter</div>
           </label>
           <select
             name="By Category"
             onChange={handleChangeCategory}
-            className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
+            className="items-center bg-white text-black flex font-normal text-base rounded-lg ml-2 mr-2 mb-2 md:mb-0 md:w-1/5 px-2 py-1 focus:outline-none"
           >
             <option value="" disabled selected hidden>
               Category
@@ -96,7 +96,7 @@ const Tenant = ({ tenantList, categoryName }) => {
           <select
             name="By Labels"
             onChange={handleChangeLabel}
-            className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
+            className="items-center bg-white text-black flex font-normal text-base rounded-lg ml-2 mr-2 mb-2 md:ml-0 md:mb-0 md:w-1/5 px-2 py-1 focus:outline-none"
           >
             <option value="" disabled selected hidden>
               Label
@@ -111,7 +111,7 @@ const Tenant = ({ tenantList, categoryName }) => {
           <select
             onChange={handleCategoryDate}
             name="By Date Range"
-            className="items-center bg-[#FFFFFF] text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 w-1/5 focus:outline-none"
+            className="items-center bg-white text-black flex font-normal text-base rounded-lg ml-2 mr-2 mb-2 md:ml-0 md:mb-0 md:w-1/5 px-2 py-1 focus:outline-none"
           >
             <option value="7"> This Week </option>
             <option value="14"> Last Week </option>
@@ -120,14 +120,14 @@ const Tenant = ({ tenantList, categoryName }) => {
           </select>
 
           <input
-            className="text-[#000000] font-normal text-base rounded-lg ml-2 px-2 py-1 focus:outline-none w-2/5"
+            className="items-center bg-white text-black flex font-normal text-base rounded-lg ml-2 mr-2 mb-2 md:ml-0 md:mb-0 md:w-2/5 px-2 py-1 focus:outline-none"
             placeholder="By Description"
             value={searchValue}
             onChange={searchHandler}
           />
         </div>
       </div>
-      <div className="flex h-full overflow-scroll flex-col w-full items-center pt-5 pb-20">
+      <div className="flex h-full overflow-scroll flex-col w-full items-center pt-5 pb-20 ml-5">
         {listItem.map((item) => {
           if (compareDates(getDataDateFilter(categoryDate), item.date) === false) {
             console.log(getDataDateFilter(7));
