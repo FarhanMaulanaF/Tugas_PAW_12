@@ -9,6 +9,7 @@ import {
 } from "../../helpers/auth.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import PopUpNav from "./popUpNav"
 
 const Navbar = () => {
   const Navigate = useNavigate();
@@ -22,24 +23,11 @@ const Navbar = () => {
           </div>
         </Link>
         <div className="flex item-center">
-          <button
-            type="text"
-            onClick={() => {
-              signout(() => {
-                Navigate("/");
-              });
-            }}
-            className="border-white border-2 rounded-md px-2 text-white hover:bg-green-800"
-          >
-            SIGN OUT{" "}
-          </button>
           <div className="text-base ml-5 text-white mt-auto mb-auto mr-2">
             Hai, nama pengguna!
           </div>
           <div className="static">
-            <Link to="/profile">
-              <img src={UserCircle} alt="UserCircle" />
-            </Link>
+            <PopUpNav />
           </div>
         </div>
       </div>

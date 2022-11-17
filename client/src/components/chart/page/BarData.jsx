@@ -10,11 +10,11 @@ const BarData = ({ pemasukan, pengeluaran }) => {
       {
         label: 'Pemasukkan',
         data: [parseInt(pemasukan), parseInt(pengeluaran)],
-        backgroundColor: ["#319C69", "#8bc34a"],
+        backgroundColor: ["#425C81", "#C9341C"],
       },
       {
         label: 'Pengeluaran',
-        backgroundColor: "#8bc34a"
+        backgroundColor: "#C9341C"
       }
     ],
   });
