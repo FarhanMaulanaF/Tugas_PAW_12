@@ -12,11 +12,7 @@ import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
 import UserProfile from "./components/afterUserLogin/userprofile";
 import PrivateRoute from "./routes/PrivateRoute";
-<<<<<<< HEAD
 import PopUpNav from "./components/afterUserLogin/popUpNav";
-=======
-
->>>>>>> f98ccff4cd8bca25a6de64b295a441298a1df170
 import "./index.css";
 
 function App() {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import TrashIcon from "../../../assets/AfterUserLogin/Trash.png";
-import UpdateIcon from "../../../assets/AfterUserLogin/Update.png";
+import Trash from "../../../assets/AfterUserLogin/Trash.svg";
+import PencilLine from "../../../assets/AfterUserLogin/PencilLine.svg";
 import axios from "axios";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -73,8 +73,8 @@ export default function ItemTenant(props, test) {
     <div
       className={
         props.itemData.label === "income"
-          ? "grid font-bold  border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm m-2"
-          : "grid font-bold  border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm m-2"
+          ? "grid font-bold border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm my-2 ml-5"
+          : "grid font-bold border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm my-2 ml-5"
       }
     >
       <div className="ml-5">{props.itemData.label}</div>
@@ -101,11 +101,12 @@ export default function ItemTenant(props, test) {
       <div>{props.itemData.date}</div>
       <div>{props.itemData.deskripsi}</div>
       <div className=" flex justify-center items-center gap-5 flex-row">
-        <img className="h-8" src={UpdateIcon}></img>
+        <img src={PencilLine} alt="Update Icon"></img>
         <img
           className="cursor-pointer"
           onClick={handleDelete}
-          src={TrashIcon}
+          src={Trash}
+          alt="Trash Icon"
         ></img>
       </div>
     </div>
