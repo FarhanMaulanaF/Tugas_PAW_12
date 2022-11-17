@@ -65,10 +65,10 @@ const Transaction = ({ props }) => {
   return (
     <div className="font-Roboto">
       <Navbar />
-      <div className="bg-[#F3F3F3] h-screen flex font-Roboto pt-28 px-16 pb-10 text-xl">
-        <div className="bg-white h-full flex flex-col gap-5 justify-between text-[#333333] font-black w-full pr-5 rounded-lg">
+      <div className="bg-[#F3F3F3] h-screen flex font-Roboto pt-16 md:pt-28 md:px-16 md:pb-10 text-xl">
+        <div className="bg-white h-full flex flex-col gap-5 justify-between text-[#333333] font-medium w-full pr-5 rounded-lg">
           <div className="flex flex-wrap justify-between ml-5 mt-5">
-            <div className="ml">Transactions</div>
+            <div className="ml-1.5 mt-1">Transactions</div>
             <div className="flex justify-between">
               <button
                 onClick={() => setShowAddTransaction(true)}

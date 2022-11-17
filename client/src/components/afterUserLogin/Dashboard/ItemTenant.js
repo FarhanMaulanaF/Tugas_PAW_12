@@ -69,15 +69,15 @@ export default function ItemTenant(props, test) {
   console.log(src);
   console.log(props.pemasukan);
   return (
-    <div className="grid font-bold w-full grid-cols-5 justify-between sm:text-base text-sm m-2">
-      <div>pemasukan :+{props.itemData.pemasukan}</div>
-      <div>pengeluaran :-{props.itemData.pengeluaran}</div>
-      <div>date :{props.itemData.date}</div>
-      <div>deskripsi :{props.itemData.deskripsi}</div>
-      <div className=" flex justify-center items-center gap-5 flex-row">
-        <img className="h-8" src={UpdateIcon}></img>
+    <div className="flex flex-row font-regular w-full sm:text-base text-sm m-2">
+      <div className="w-1/4">Pemasukan :+{props.itemData.pemasukan}</div>
+      <div className="w-1/4">Pengeluaran :-{props.itemData.pengeluaran}</div>
+      <div className="w-1/4">date :{props.itemData.date}</div>
+      <div className="w-1/4">deskripsi :{props.itemData.deskripsi}</div>
+      <div className=" flex justify-end items-center gap-5 flex-row">
+        <img className="h-5" src={UpdateIcon}></img>
         <img
-          className="cursor-pointer"
+          className="h-6 cursor-pointer"
           onClick={handleDelete}
           src={TrashIcon}
         ></img>
