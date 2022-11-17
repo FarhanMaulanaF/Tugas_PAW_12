@@ -17,13 +17,16 @@ const Tenant = ({ tenantList, categoryName, loadPosts }) => {
   };
 
   const getDataDateFilter = (DateBefore) => {
-
     var today = new Date();
-    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - DateBefore);
+    var nextweek = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() - DateBefore
+    );
     return nextweek;
-  }
+  };
 
-  useEffect(() => { }, []);
+  useEffect(() => {}, []);
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -39,16 +42,27 @@ const Tenant = ({ tenantList, categoryName, loadPosts }) => {
             </>
           )}
           <div className="flex flex-col w-full p-5 ">
+            <div className="grid font-bold text-white  bg-black h-16 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-center sm:text-base text-sm m-2">
+              <div className="mx-auto">Category</div>
+              <div className="mx-auto">Label</div>
+              <div className="mx-auto">Amount</div>
+              <div className="mx-auto">Date</div>
+              <div className="mx-auto">Description</div>
+              <div className="mx-auto">Action</div>
+            </div>
+
             {tenantList.map((item) => {
               if (compareDates("2022-10-03", item.date) === false) {
                 console.log(getDataDateFilter(7));
                 console.log(compareDates(getDataDateFilter(7), "2022-11-22"));
                 return (
-                  <ItemTenant
-                    key={item.id_tenant}
-                    test={loadPosts}
-                    itemData={item}
-                  />
+                  <>
+                    <ItemTenant
+                      key={item.id_tenant}
+                      test={loadPosts}
+                      itemData={item}
+                    />
+                  </>
                 );
               } else {
                 return <></>;

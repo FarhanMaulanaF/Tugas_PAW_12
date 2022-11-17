@@ -158,22 +158,31 @@ const AddTransaction = ({ visible, onClose }) => {
               placeholder="Title"
               onChange={handleChange("title")}
             ></input>
-            <input
-              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
-              id="amount"
-              type="number"
-              value={pengeluaran}
-              placeholder="Pengeluaran"
-              onChange={handleChange("pengeluaran")}
-            ></input>
-            <input
-              className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
-              id="amount"
-              type="number"
-              value={pemasukan}
-              placeholder="Pemasukan"
-              onChange={handleChange("pemasukan")}
-            ></input>
+
+            {label === "income" ? (
+              <input
+                className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
+                id="amount"
+                type="number"
+                value={pemasukan}
+                placeholder="Pemasukan"
+                onChange={handleChange("pemasukan")}
+              ></input>
+            ) : (
+              <></>
+            )}
+            {label === "expense" ? (
+              <input
+                className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
+                id="amount"
+                type="number"
+                value={pengeluaran}
+                placeholder="Pengeluaran"
+                onChange={handleChange("pengeluaran")}
+              ></input>
+            ) : (
+              <></>
+            )}
             <input
               value={deskripsi}
               className="py-0.5 px-2 mt-4 w-full border border-black rounded-lg text-gray-700"
@@ -189,15 +198,15 @@ const AddTransaction = ({ visible, onClose }) => {
             />
             <div className="flex mt-2 justify-end">
               <button
-              type="button"
-              onClick={onClose}
-              className="bg-[#D9D9D9] hover:bg-gray-400 text-black mt-4 mr-4 w-1/3 py-1 rounded"
+                type="button"
+                onClick={onClose}
+                className="bg-[#D9D9D9] hover:bg-gray-400 text-black mt-4 mr-4 w-1/3 py-1 rounded"
               >
                 Cancel
               </button>
               <button
-              type="submit"
-              className="bg-[#319C69] hover:bg-green-800 text-white mt-4 w-1/3 py-1 rounded"
+                type="submit"
+                className="bg-[#319C69] hover:bg-green-800 text-white mt-4 w-1/3 py-1 rounded"
               >
                 Done
               </button>
