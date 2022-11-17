@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import TrashIcon from "../../../assets/AfterUserLogin/Trash.png";
 import UpdateIcon from "../../../assets/AfterUserLogin/Update.png";
 import axios from "axios";
+
 import { ToastContainer, toast } from "react-toastify";
 import {
   updateUser,
@@ -69,15 +70,40 @@ export default function ItemTenant(props, test) {
   console.log(src);
   console.log(props.pemasukan);
   return (
-    <div className="flex flex-row font-regular w-full sm:text-base text-sm m-2 ml-5">
-      <div className="w-1/4">Pemasukan :+{props.itemData.pemasukan}</div>
-      <div className="w-1/4">Pengeluaran :-{props.itemData.pengeluaran}</div>
-      <div className="w-1/4">Date :{props.itemData.date}</div>
-      <div className="w-1/4">Deskripsi :{props.itemData.deskripsi}</div>
-      <div className="flex justify-end items-center gap-5 flex-row">
-        <img className="h-5" src={UpdateIcon}></img>
+    <div
+      className={
+        props.itemData.label === "income"
+          ? "grid font-bold bg-white border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm m-2"
+          : "grid font-bold bg-white border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm m-2"
+      }
+    >
+      <div className="ml-5">{props.itemData.label}</div>
+      <div className="flex capitalize">
+        <img src={`/transaction/${props.itemData.kategori}.svg`}></img>
+        {props.itemData.kategori}
+      </div>
+
+      {props.itemData.label === "income" ? (
+        <>
+          <div className="text-green-500">+Rp. {props.itemData.pemasukan}</div>
+        </>
+      ) : (
+        <></>
+      )}
+      {props.itemData.label === "expense" ? (
+        <>
+          <div className="text-red-400">-Rp. {props.itemData.pengeluaran}</div>
+        </>
+      ) : (
+        <></>
+      )}
+
+      <div>{props.itemData.date}</div>
+      <div>{props.itemData.deskripsi}</div>
+      <div className=" flex justify-center items-center gap-5 flex-row">
+        <img className="h-8" src={UpdateIcon}></img>
         <img
-          className="h-6 mr-5 cursor-pointer"
+          className="cursor-pointer"
           onClick={handleDelete}
           src={TrashIcon}
         ></img>

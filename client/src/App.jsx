@@ -5,15 +5,18 @@ import Login from "./page/beforeUserLogin/login";
 import Register from "./page/beforeUserLogin/register";
 import CreateNewPassword from "./components/beforeUserLogin/createNewPassword";
 import ForgotPassword from "./components/beforeUserLogin/forgotPassword";
-import Beranda from "../src/components/User/Dashboards/Beranda";
+
 import Dashboard from "./components/afterUserLogin/dashboard";
-import Transaksi from "../src/components/User/Transaksi/Transaksi";
-import Private from "../src/components/User/AddForm/Private";
+
 import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
 import UserProfile from "./components/afterUserLogin/userprofile";
 import PrivateRoute from "./routes/PrivateRoute";
+<<<<<<< HEAD
 import PopUpNav from "./components/afterUserLogin/popUpNav";
+=======
+
+>>>>>>> f98ccff4cd8bca25a6de64b295a441298a1df170
 import "./index.css";
 
 function App() {
@@ -33,9 +36,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transaction" element={<Transaction />} />
           <Route path="/transactions" element={<Transaction props="true" />} />
-          <Route path="/beranda" element={<Beranda />} />
-          <Route path="/transaksi" element={<Transaksi />} />
-          <Route path="/tambahtransaksi" element={<Private />} />
+
           <Route path="/profile" element={<UserProfile />} />
         </Route>
       </Routes>
