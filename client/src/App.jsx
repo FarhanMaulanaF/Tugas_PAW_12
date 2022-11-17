@@ -13,7 +13,7 @@ import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
 import UserProfile from "./components/afterUserLogin/userprofile";
 import PrivateRoute from "./routes/PrivateRoute";
-import PageChart from "./components/chart/page/BarData";
+import PopUpNav from "./components/afterUserLogin/popUpNav";
 import "./index.css";
 
 function App() {
