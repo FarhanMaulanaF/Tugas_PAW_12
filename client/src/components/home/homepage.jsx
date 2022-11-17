@@ -3,7 +3,7 @@ import Illustration from "../../assets/Illustration.png";
 import { Link } from "react-router-dom";
 function Homepage() {
   return (
-    <div className="bg-[#319C69] h-screen w-screen font-Roboto">
+    <div className="bg-[#319C69] h-screen w-full font-Roboto">
       {/* navbar  */}
       <div className="text-white flex justify-between items-center">
         <div className="font-black text-4xl ml-10 md:ml-32 my-10">
