@@ -12,32 +12,51 @@ function Homepage() {
         <div className="mr-32 my-10">
           <ul className="hidden md:flex font-semibold text-lg space-x-14">
             <li>
-              <a href="/" className="hover:text-[#263238]">Home</a>
+              <a href="/" className="hover:text-[#263238]">
+                Home
+              </a>
             </li>
             <li>
-              <a href="#section-2" className="hover:text-[#263238]" to="features">
+              <a
+                href="#section-2"
+                className="hover:text-[#263238]"
+                to="features"
+              >
                 Features
               </a>
             </li>
             <li>
-              <a href="#section-3" className="hover:text-[#263238]" to="about-us">
+              <a
+                href="#section-3"
+                className="hover:text-[#263238]"
+                to="about-us"
+              >
                 About Us
               </a>
             </li>
             <li>
-              <Link to="/login" className="hover:text-[#263238]">Login</Link>
+              <Link to="/login" className="hover:text-[#263238]">
+                Login
+              </Link>
             </li>
             <li>
-              <Link to="/signup" className="hover:text-[#263238]">Register</Link>
+              <Link to="/signup" className="hover:text-[#263238]">
+                Register
+              </Link>
             </li>
           </ul>
         </div>
       </div>
 
       {/* Pristin Content */}
-      <div id="section-1" className="flex flex-col md:flex-row  md:flex justify-between items-center pt-12">
+      <div
+        id="section-1"
+        className="flex flex-col md:flex-row  md:flex justify-between items-center pt-12"
+      >
         <div className="order-last md:order-first">
-          <div className="text-white text-6xl font-black text-center mt-10 md:ml-32 md:text-left">Pristin</div>
+          <div className="text-white text-6xl font-black text-center mt-10 md:ml-32 md:text-left">
+            Pristin
+          </div>
 
           <div className="text-white text-xl text-center md:ml-32 md:text-left font-light my-5">
             Track, note, and manage your daily transactions <br /> all in a
