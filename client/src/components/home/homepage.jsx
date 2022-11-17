@@ -12,19 +12,23 @@ function Homepage() {
         <div className="mr-32 my-10">
           <ul className="flex font-semibold text-lg space-x-14">
             <li>
-              <a to="/">Home</a>
+              <a href="/" className="hover:text-[#263238]">Home</a>
             </li>
             <li>
-              <a href="#section-2" to="features">Features</a>
+              <a href="#section-2" className="hover:text-[#263238]" to="features">
+                Features
+              </a>
             </li>
             <li>
-              <a href="#section-3" to="about-us">About Us</a>
+              <a href="#section-3" className="hover:text-[#263238]" to="about-us">
+                About Us
+              </a>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" className="hover:text-[#263238]">Login</Link>
             </li>
             <li>
-              <Link to="/signup">Register</Link>
+              <Link to="/signup" className="hover:text-[#263238]">Register</Link>
             </li>
           </ul>
         </div>
@@ -40,7 +44,7 @@ function Homepage() {
             single page.
           </div>
 
-          <button class="bg-[#F3F3F3] ml-32 font-medium py-3 px-7 rounded-lg my-16 text-xl">
+          <button class="bg-[#F3F3F3] ml-32 font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
             Get Started
           </button>
         </div>
