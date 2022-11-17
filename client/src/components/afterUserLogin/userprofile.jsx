@@ -173,17 +173,19 @@ const UserProfile = () => {
   return (
     <div className="font-Roboto">
       <Navbar />
-      <div className="bg-[#F3F3F3] h-screen font-Roboto pt-28 px-16 pb-10">
-        <div className="bg-white h-full grid md:grid-cols-2 gap-5 justify-between text-[#333333] w-full p-5 rounded-lg">
+      <div className="bg-[#F3F3F3] h-screen font-Roboto md:pt-28 md:px-16 md:pb-10">
+        <div className="bg-white md:grid md:grid-cols-2 text-[#333333] w-full p-5 rounded-lg">
           <div className="items-center flex flex-col">
             <img
               src={link_profil}
               alt="UserCircle"
-              className="w-60 h-60 mt-20 bg-[#319C69] rounded-full shadow"
+              className="w-40 h-40 mt-20 md:w-60 md:h-60 md:mt-16 bg-[#319C69] rounded-full shadow"
             />
-            <form onSubmit={handleSubmits}>
+            <form 
+            onSubmit={handleSubmits}
+            className="items-center flex flex-col">
               <input
-                className="text-white sm:w-fit w-2/3"
+                className="mt-5 mb-3 border-2"
                 type="file"
                 accept=".png, .jpg, .jpeg"
                 name="photo5"
@@ -191,14 +193,13 @@ const UserProfile = () => {
               />
               <button
                 type="submit"
-                className="items-center px-4 py-1 mt-5 rounded-md border-2 border-[#319C69] bg-white hover:bg-gray-200"
-              >
-                Upload New Photo
+                className="px-4 py-0.5 rounded-md border-2 border-[#319C69] bg-white hover:bg-gray-200">
+                Confirm New Photo
               </button>
             </form>
           </div>
           <form
-            className="bg-white m-10 justify-center items-center"
+            className="bg-white m-5 md:m-10 justify-center items-center"
             onSubmit={handleSubmit}
           >
             <div className="mb-4">
@@ -249,10 +250,10 @@ const UserProfile = () => {
                 onChange={handleChange("password2")}
               />
             </div>
-            <div className="justify-end flex">
+            <div className="justify-center md:justify-end flex">
               <button
                 type="submit"
-                className="items-center px-4 py-2 mt-5 rounded-md text-white bg-[#319C69] hover:bg-green-800"
+                className="items-center px-4 py-2 md:mt-5 rounded-md text-white bg-[#319C69] hover:bg-green-800"
               >
                 Update Profile{" "}
               </button>
