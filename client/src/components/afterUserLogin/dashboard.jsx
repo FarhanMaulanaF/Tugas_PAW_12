@@ -15,6 +15,7 @@ import PlusCircle from "../../assets/PlusCircle.svg";
 import CheckCircle from "../../assets/CheckCircle (1).png";
 import Navbar from "./navbar";
 import BarData from "../chart/page/BarData";
+import AddTransaction from "../afterUserLogin/addtransaction.jsx";
 
 import { ToastContainer, toast } from "react-toastify";
 
@@ -30,6 +31,7 @@ const Dashboard = () => {
 
   const tittle = "Loading";
   const [dataTransaksi, setData] = useState([]);
+  const [showAddTransaction, setShowAddTransaction] = React.useState(false);
   const [startBalance, setStartingBalance] = useState(false);
   const [isRendered, setRendered] = useState(false)
   const [formData, setFormData] = useState({
@@ -164,17 +166,20 @@ const Dashboard = () => {
   };
   const { name, email, textChange, pemasukan, pengeluaran, tabungan } =
     formData;
+  const handleOnClose = () => {
+    setShowAddTransaction(false);
+    loadPost();
+  };
 
   return (
     <div className="font-Roboto">
       <Navbar />
-
-      <div className="h-screen flex font-Roboto pt-44 px-16 pb-10 text-xl">
-        <div className="text-black font-black w-2/3 pr-5">
+      <div className="bg-[#F3F3F3] h-screen flex font-Roboto pt-20 px-4 pb-4 md:pt-28 md:px-16 md:pb-10 text-xl">
+        <div className="text-black font-medium w-2/3 pr-5">
           <ToastContainer />
-          <div className="bg-[#D9D9D9] h-[25%] rounded-lg flex justify-between px-5 w-full">
-            <div className=" flex justify-between pl-5 pr-24 w-full">
-              <div className="mt-5 ml-4 items-center w-fit ">
+          <div className="bg-white h-[15%] rounded-lg flex justify-between px-5 w-full">
+            <div className=" flex flex-row justify-between px-5 w-full">
+              <div className="mt-5 items-center w-fit ">
                 Your Money
                 <div className="h-3/5 place-items-start flex items-center">
                   {!isHavingInit ? (
@@ -225,44 +230,46 @@ const Dashboard = () => {
                       )}
                     </>
                   ) : (
-                    <div>{tabungan}</div>
+                    <div className="font-regular">
+                      Rp {tabungan}
+                    </div>
                   )}
                 </div>
               </div>
               <div className="mt-5">
                 Total Expense
-                <div className="grid h-3/5 place-items-start items-center font-bold text-xl ">
+                <div className="grid h-3/5 place-items-start items-center font-regular text-xl ">
                   Rp {pengeluaran}
                 </div>
               </div>
               <div className="mt-5">
                 Total Income
-                <div className="grid h-3/5  place-items-start items-center font-bold text-xl ">
+                <div className="grid h-3/5  place-items-start items-center font-regular text-xl ">
                   Rp {pemasukan}
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-5 bg-[#D9D9D9]   flex flex-col  h-[72%] rounded-lg">
-            <div className="mx-12 mt-12 justify-between flex ">
+          <div className="mt-5 bg-white flex flex-col h-[83%] rounded-lg">
+            <div className="mx-10 mt-6 justify-between flex ">
               <p>Transactions</p>
-              <NavLink to="/transactions">
-                <button className=" bg-[#319C69]   place-items-start rounded-md px-2 py-1 items-center text-white flex font-normal text-base">
-                  <img className="mr-1 " src={PlusCircle} alt="PlusCircle" />
+                <button onClick={() => setShowAddTransaction(true)}
+                className="bg-[#319C69] place-items-start rounded-md px-2 py-1 items-center text-white flex font-normal text-base">
+                  <img className="mr-1" src={PlusCircle} alt="PlusCircle" />
                   <div>New Transaction</div>
                 </button>
-              </NavLink>
             </div>
             <MapTenant tenantList={dataTransaksi}></MapTenant>
           </div>
         </div>
-        <div className=" text-black font-black bg-[#D9D9D9] w-1/3 rounded-lg">
+        <div className=" text-black font-black bg-white w-1/3 rounded-lg">
           <div className="pl-10 mt-5">Statistics</div>
           <div className="flex w-[95%] h-4/5 justify-center items-center font-extralight text-base pl-5">
             {isRendered ? <>  <BarData pemasukan={pemasukan} pengeluaran={pengeluaran} /></> : <></>}
           </div>
         </div>
       </div>
+      <AddTransaction onClose={handleOnClose} visible={showAddTransaction} />
     </div>
   );
 };
