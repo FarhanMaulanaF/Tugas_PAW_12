@@ -19,7 +19,7 @@ function Features() {
             </p>
           </div>
           <div className='h-full my-2 flex flex-col mx-auto w-11/12 bg-[#319C69] flex items-center rounded-lg'>
-            <div className="m-10">
+            <div className="m-15">
               <img src={Group} alt="Money Expenses Organization Illustration"/>
             </div>
             <p className="mx-auto w-3/5 text-[#FFFFFF]">
