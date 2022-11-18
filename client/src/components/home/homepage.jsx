@@ -1,6 +1,7 @@
 import React from "react";
 import Illustration from "../../assets/Illustration.png";
 import { Link } from "react-router-dom";
+
 function Homepage() {
   return (
     <div className="bg-[#319C69] h-screen w-full font-Roboto">
@@ -40,7 +41,7 @@ function Homepage() {
               </Link>
             </li>
             <li>
-              <Link to="/signup" className="hover:text-[#263238]">
+              <Link to="/register" className="hover:text-[#263238]">
                 Register
               </Link>
             </li>
@@ -64,9 +65,11 @@ function Homepage() {
           </div>
 
           <div className="flex justify-center md:justify-start">
-            <button class="bg-[#F3F3F3] justify-center md:text-left md:ml-32 font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
+            <Link to="/register">
+              <button class="bg-[#F3F3F3] justify-center md:text-left md:ml-32 font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
               Get Started
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
 

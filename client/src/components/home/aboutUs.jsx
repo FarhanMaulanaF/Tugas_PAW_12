@@ -1,13 +1,13 @@
 import React from "react";
-import MeetOurTeam from "../../assets/MeetOurTeam.svg";
+import Team from "../../assets/team.png";
+import { Link } from "react-router-dom";
 
 function AboutUs() {
   return (
     <div
       id="section-3"
       name="aboutus"
-      className="bg-white pt-48 font-Roboto h-screen w-screen flex "
-    >
+      className="bg-white pt-48 font-Roboto h-screen w-screen flex ">
       <div className="md:grid-cols-2 grid mt-16 sm:mt-0 md:flex-row flex-col gap-5 w-screen h-1/2">
         <div className="justify-center md:ml-16">
           <div className="text-black text-center font-black text-4xl content-center md:text-left">
@@ -22,9 +22,11 @@ function AboutUs() {
             development.
           </div>
           <div className="flex justify-center md:justify-start">
-            <button class="bg-[#319C69] font-medium py-3 px-7 rounded-lg text-xl text-white mt-5 md:mt-10 hover:bg-[#263238]">
+            <Link to="/register">
+              <button class="bg-[#319C69] text-white md:text-left font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
               Get Started
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -33,8 +35,8 @@ function AboutUs() {
             <div className="flex justify-center text-black text-center font-black text-4xl">
               Meet our Team
             </div>
-            <div className="flex justify-center mt-8">
-              <img src={MeetOurTeam} alt="meet our team" />
+            <div className="flex justify-center">
+              <img src={Team} className="scale-75" alt="our team" />
             </div>
           </div>
         </div>
