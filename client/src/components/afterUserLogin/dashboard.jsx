@@ -170,14 +170,14 @@ const Dashboard = () => {
     <div className="font-Roboto">
       <Navbar />
 
-      <div className="h-screen flex font-Roboto pt-44 px-16 pb-10 text-xl">
-        <div className="text-black font-black w-2/3 pr-5">
+      <div className="md:h-screen flex-none md:flex font-Roboto pt-20 md:pt-32 px-5 md:px-16 pb-10 text-xl">
+        <div className="text-black font-black w-[100%] md:w-2/3 pr-0 md:pr-5">
           <ToastContainer />
-          <div className="bg-[#D9D9D9] h-[25%] rounded-lg flex justify-between px-5 w-full">
-            <div className=" flex justify-between pl-5 pr-24 w-full">
-              <div className="mt-5 ml-4 items-center w-fit ">
+          <div className="bg-[#D9D9D9] h-40 md:h-[15%] rounded-lg flex justify-between px-5 w-full items-center md:items-start md:pt-5">
+            <div className="gap-8 md:gap-0 flex justify-between pl-5 pr-10 md:pr-24 w-full">
+              <div className="ml-4 items-center w-fit ">
                 Your Money
-                <div className="h-3/5 place-items-start flex items-center">
+                <div className="font-medium h-3/5 place-items-start flex items-center">
                   {!isHavingInit ? (
                     <>
                       {" "}
@@ -230,21 +230,21 @@ const Dashboard = () => {
                   )}
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="">
                 Total Expense
-                <div className="grid h-3/5 place-items-start items-center font-bold text-xl ">
+                <div className="font-medium grid h-3/5 place-items-start items-center text-xl ">
                   Rp {pengeluaran}
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="">
                 Total Income
-                <div className="grid h-3/5  place-items-start items-center font-bold text-xl ">
+                <div className="font-medium grid h-3/5  place-items-start items-center text-xl ">
                   Rp {pemasukan}
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-5 bg-[#D9D9D9]   flex flex-col  h-[72%] rounded-lg">
+          <div className="mt-5 bg-[#D9D9D9] flex flex-col  h-[83%] rounded-lg">
             <div className="mx-12 mt-12 justify-between flex ">
               <p>Transactions</p>
               {isHavingInit ? (
@@ -271,8 +271,8 @@ const Dashboard = () => {
             <MapTenant tenantList={dataTransaksi}></MapTenant>
           </div>
         </div>
-        <div className=" text-black font-black bg-[#D9D9D9] w-1/3 rounded-lg">
-          <div className="pl-10 mt-5">Statistics</div>
+        <div className=" text-black font-black bg-[#D9D9D9] md:h[100%] md:w-1/3 rounded-lg w-[100%]">
+          <div className="pl-10 pt-5 md:pt-0 mt-5 ">Statistics</div>
           <div className="flex w-[95%] h-4/5 justify-center items-center font-extralight text-base pl-5">
             {isRendered ? (
               <>
