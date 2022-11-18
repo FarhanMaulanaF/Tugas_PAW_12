@@ -2,6 +2,7 @@ import React from "react";
 import Illustration from "../../assets/Illustration.png";
 import { Link } from "react-router-dom";
 import Dropdown from './Dropdown'
+import { authenticate, isAuth } from "../../helpers/auth";
 
 function Homepage() {
   return (
@@ -36,7 +37,7 @@ function Homepage() {
                 About Us
               </a>
             </li>
-            <li>
+            {!isAuth() ?  (<> <li>
               <Link to="/login" className="hover:text-[#263238]">
                 Login
               </Link>
@@ -45,7 +46,13 @@ function Homepage() {
               <Link to="/register" className="hover:text-[#263238]">
                 Register
               </Link>
+            </li></>) : (<> <li>
+              <Link to="/dashboard" className="hover:text-[#263238]">
+                Dashboard
+              </Link>
             </li>
+           </>)}
+           
           </ul>
           <Dropdown/>
         </div>

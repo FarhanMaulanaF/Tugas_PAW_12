@@ -9,7 +9,8 @@ import {
 } from "../../helpers/auth.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import PopUpNav from "./popUpNav"
+
+import Dropdown from './Dropdown'
 
 const Navbar = () => {
   const Navigate = useNavigate();
@@ -24,10 +25,10 @@ const Navbar = () => {
         </Link>
         <div className="flex item-center">
           <div className="text-base ml-5 text-white mt-auto mb-auto mr-2">
-            Hai, nama pengguna!
+           
           </div>
           <div className="static">
-            <PopUpNav />
+            <Dropdown />
           </div>
         </div>
       </div>
