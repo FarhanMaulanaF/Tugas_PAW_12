@@ -1,7 +1,7 @@
 import React from "react";
 import Illustration from "../../assets/Illustration.png";
 import { Link } from "react-router-dom";
-import Dropdown from './Dropdown'
+import Dropdown from "./Dropdown";
 import { authenticate, isAuth } from "../../helpers/auth";
 
 function Homepage() {
@@ -37,24 +37,32 @@ function Homepage() {
                 About Us
               </a>
             </li>
-            {!isAuth() ?  (<> <li>
-              <Link to="/login" className="hover:text-[#263238]">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register" className="hover:text-[#263238]">
-                Register
-              </Link>
-            </li></>) : (<> <li>
-              <Link to="/dashboard" className="hover:text-[#263238]">
-                Dashboard
-              </Link>
-            </li>
-           </>)}
-           
+            {!isAuth() ? (
+              <>
+                {" "}
+                <li>
+                  <Link to="/login" className="hover:text-[#263238]">
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/register" className="hover:text-[#263238]">
+                    Register
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                {" "}
+                <li>
+                  <Link to="/dashboard" className="hover:text-[#263238]">
+                    Dashboard
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
-          <Dropdown/>
+          <Dropdown />
         </div>
       </div>
 
@@ -76,7 +84,7 @@ function Homepage() {
           <div className="flex justify-center md:justify-start">
             <Link to="/register">
               <button class="bg-[#F3F3F3] justify-center md:text-left md:ml-32 font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
-              Get Started
+                Get Started
               </button>
             </Link>
           </div>
