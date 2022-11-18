@@ -85,23 +85,22 @@ export default function ItemTenant(props, test) {
 
       {props.itemData.label === "income" ? (
         <>
-          <div className="text-green-500">+Rp. {props.itemData.pemasukan}</div>
+          <div className="text-green-500 text-center">+Rp. {props.itemData.pemasukan}</div>
         </>
       ) : (
         <></>
       )}
       {props.itemData.label === "expense" ? (
         <>
-          <div className="text-red-400">-Rp. {props.itemData.pengeluaran}</div>
+          <div className="text-red-400 text-center">-Rp. {props.itemData.pengeluaran}</div>
         </>
       ) : (
         <></>
       )}
 
-      <div className="hidden sm:block">{props.itemData.date}</div>
-      <div className="hidden md:block">{props.itemData.deskripsi}</div>
+      <div className="hidden sm:block text-center">{props.itemData.date}</div>
+      <div className="hidden md:block text-center">{props.itemData.deskripsi}</div>
       <div className=" flex justify-center items-center gap-5 flex-row">
-        <img src={PencilLine} alt="Update Icon"></img>
         <img
           className="cursor-pointer"
           onClick={handleDelete}
