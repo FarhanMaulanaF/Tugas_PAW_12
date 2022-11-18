@@ -101,7 +101,6 @@ export default function ItemTenant(props, test) {
       <div>{props.itemData.date}</div>
       <div>{props.itemData.deskripsi}</div>
       <div className=" flex justify-center items-center gap-5 flex-row">
-        <img src={PencilLine} alt="Update Icon"></img>
         <img
           className="cursor-pointer"
           onClick={handleDelete}
