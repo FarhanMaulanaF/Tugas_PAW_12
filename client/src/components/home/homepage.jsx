@@ -1,19 +1,20 @@
 import React from "react";
 import Illustration from "../../assets/Illustration.png";
 import { Link } from "react-router-dom";
+import Dropdown from './Dropdown'
 
 function Homepage() {
   return (
-    <div className="bg-[#319C69] h-screen w-full font-Roboto">
+    <div className="bg-[#319C69] overflow-hidden h-fit w-full font-Roboto">
       {/* navbar  */}
       <div className="text-white flex justify-between items-center">
         <div className="font-black text-4xl ml-10 md:ml-32 my-10">
           <a href="/">Pristin</a>
         </div>
-        <div className="mr-32 my-10">
-          <ul className="hidden md:flex font-semibold text-lg space-x-14">
+        <div className="md:mr-32  md:my-10">
+          <ul className="md:flex font-semibold hidden text-lg space-x-14">
             <li>
-              <a href="/" className="hover:text-[#263238]">
+              <a href="/" className=" hover:text-[#263238]">
                 Home
               </a>
             </li>
@@ -46,6 +47,7 @@ function Homepage() {
               </Link>
             </li>
           </ul>
+          <Dropdown/>
         </div>
       </div>
 
@@ -73,7 +75,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="flex order-first md:order-last justify-center md:justify-start md:mr-32 md:my-32 md:scale-110">
+        <div className="flex order-first md:order-last justify-center md:justify-start md:mr-32 md:my-32 ">
           <img src={Illustration} alt="illustration" />
         </div>
       </div>

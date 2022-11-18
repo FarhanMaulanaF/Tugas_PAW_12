@@ -16,7 +16,7 @@ function Features() {
           Features
         </div>
         <div className="md:flex flex-row items-center text-center gap-6 md:gap-5 h-4/5 mt-10 md:mt-20 font-medium">
-          <div className="h-1/3 md:h-full my-2  mx-auto w-11/12 flex md:flex-row flex-col items-center bg-[#319C69] rounded-lg">
+          <div className="h-1/3 md:h-full my-2 md:pt-16 2xl:pt-0  mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
             <div className="flex items-center justify-center m-10 md:ml-10">
               <img src={Notes} alt="Record Income and Expenses Illustration" />
             </div>
@@ -24,7 +24,7 @@ function Features() {
               Record your daily income and expenses
             </p>
           </div>
-          <div className="h-1/3 md:h-full my-2  mx-auto w-11/12 flex md:flex-row flex-col items-center bg-[#319C69] rounded-lg">
+          <div className="h-1/3 md:h-full my-2  md:pt-16 2xl:pt-0 mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
             <div className="flex items-center justify-center m-10 md:ml-10">
               <img src={Group} alt="Money Expenses Organization Illustration" />
             </div>
@@ -32,7 +32,7 @@ function Features() {
               Keep track of where all your money is spent
             </p>
           </div>
-          <div className="h-1/3 md:h-full my-2  mx-auto w-11/12 flex md:flex-row flex-col items-center bg-[#319C69] justify-center rounded-lg">
+          <div className="h-1/3 md:h-full my-2  md:pt-16 2xl:pt-0 mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69]  rounded-lg">
             <div className="flex items-center justify-center mt-10 md:ml-10">
               <img src={Savingmoney} alt="Saving Money Illustration" />
             </div>
@@ -40,7 +40,7 @@ function Features() {
               Visualize your income and expenses based on your own categories
             </p>
           </div>
-          <div className="h-1/3 md:h-full my-2  mx-auto w-11/12 flex md:flex-row flex-col items-center justify-center bg-[#319C69] rounded-lg">
+          <div className="h-1/3 md:h-full my-2 md:pt-16 2xl:pt-0 mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
             <div className="flex items-center justify-center m-10 md:ml-10">
               <img src={Visualdata} alt="Saving Money Illustration" />
             </div>

@@ -7,8 +7,8 @@ function AboutUs() {
     <div
       id="section-3"
       name="aboutus"
-      className="bg-white pt-48 font-Roboto h-screen w-screen flex ">
-      <div className="md:grid-cols-2 grid mt-16 sm:mt-0 md:flex-row flex-col gap-5 w-screen h-1/2">
+      className="bg-white pt-48 font-Roboto h-screen w-fit flex ">
+      <div className="md:grid-cols-2 grid mt-16 sm:mt-0 md:flex-row flex-col gap-5 w-fit h-1/2">
         <div className="justify-center md:ml-16">
           <div className="text-black text-center font-black text-4xl content-center md:text-left">
             About Us

@@ -42,7 +42,7 @@ const Tenant = ({ tenantList, categoryName, loadPosts }) => {
             </>
           )}
           <div className="flex flex-col w-full p-5 ">
-            <div className="grid font-bold text-white  bg-black h-16 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-center sm:text-base text-sm m-2">
+            <div className="grid font-bold text-white  bg-[#319C69] h-16 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-center sm:text-base text-sm m-2">
               <div className="mx-auto">Category</div>
               <div className="mx-auto">Label</div>
               <div className="mx-auto">Amount</div>
