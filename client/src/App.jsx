@@ -12,6 +12,7 @@ import Home from "../src/page/home/home";
 import Transaction from "./components/afterUserLogin/transactionpage";
 import UserProfile from "./components/afterUserLogin/userprofile";
 import PrivateRoute from "./routes/PrivateRoute";
+import PageNotFound from "./components/PageNotFound";
 
 import "./index.css";
 
@@ -35,6 +36,7 @@ function App() {
 
           <Route path="/profile" element={<UserProfile />} />
         </Route>
+        <Route path="*" element={<PageNotFound/>}/>
       </Routes>
     </>
   );
