@@ -76,7 +76,7 @@ const Tenant = ({ tenantList, categoryName }) => {
 
   return (
     <>
-      <div className="flex justify-between   ml-5 mt">
+      <div className="flex justify-between ml-5 mt">
         <div className="ml-2 mt-2 flex justify-between bg-[#319C69] p-1.5 rounded-lg w-full">
           <label className="items-center text-[#FFFFFF] flex font-normal text-base rounded-lg px-2 py-1">
             <img src={FadersWhite} alt="FadersWhite" />

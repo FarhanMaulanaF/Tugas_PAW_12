@@ -79,22 +79,22 @@ export default function ItemTenant(props, test) {
     <>
       {deleted ? (
         <>
-          <div className="absolute bg-gray-500   -translate-y-72  bg-opacity-0 flex justify-center items-center h-full w-full">
+          <div className="fixed z-[1000] font-Roboto font-normal inset-0 bg-black bg-opacity-30 flex justify-center items-center">
             <div className="md:w-1/2 w-[75%] h-[60%] lg:h-1/2 flex justify-center items-center">
-              <div className="w-3/4 rounded-md outline outline-2  bg-gray-200 px-5 flex flex-col justify-center items-center h-1/2">
+              <div className="w-3/4 rounded-md bg-white px-5 flex flex-col justify-center items-center h-1/2">
                 <div className="text-black mb-5">
-                  Are you sure to delete this transaction?
+                  Are you sure you want to delete this transaction?
                 </div>
                 <div className="flex w-[70%] items-center justify-between">
                   <button
                     onClick={handleOpenWarning}
-                    className="bg-white rounded-md w-[40%]"
+                    className="bg-[#D9D9D9] hover:bg-gray-400 text-black mt-4 mr-4 w-1/3 py-1 rounded"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleDelete}
-                    className="bg-[#319C69] rounded-md w-[40%]"
+                    className="bg-[#319C69] hover:bg-green-800 text-white mt-4 w-1/3 py-1 rounded"
                   >
                     Yes
                   </button>
