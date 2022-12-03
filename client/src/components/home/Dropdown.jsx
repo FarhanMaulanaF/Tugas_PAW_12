@@ -3,11 +3,13 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Burger from "../../assets/Icon.svg";
 import { Link } from "react-router-dom";
+import { authenticate, isAuth } from "../../helpers/auth";
 
-export default function Example() {
+export default function Example({ is404 }) {
+  const Is404 = is404;
   return (
-    <div className="md:hidden mr-6 text-right">
-      <Menu as="div" className="relative inline-block text-left">
+    <div className="z-[100] md:hidden mr-6 text-right">
+      <Menu as="div" className="z-[100]  relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             <img src={Burger} />
@@ -26,11 +28,7 @@ export default function Example() {
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
-                  <a
-                    href="#section-1"
-                    className="hover:text-[#263238]"
-                    to="features"
-                  >
+                  <Link className="hover:text-[#263238]" to="">
                     <button
                       className={`${
                         active ? "bg-violet-500 text-white" : "text-gray-900"
@@ -38,58 +36,99 @@ export default function Example() {
                     >
                       Home
                     </button>
-                  </a>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <a
-                    href="#section-1"
-                    className="hover:text-[#263238]"
-                    to="features"
-                  >
-                    <button
-                      className={`${
-                        active ? "bg-violet-500 text-white" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      Features
-                    </button>
-                  </a>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <a
-                    href="#section-1"
-                    className="hover:text-[#263238]"
-                    to="features"
-                  >
-                    <button
-                      className={`${
-                        active ? "bg-violet-500 text-white" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      About Us
-                    </button>
-                  </a>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link to="/login">
-                    <button
-                      className={`${
-                        active ? "bg-violet-500 text-white" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      Login
-                    </button>
                   </Link>
                 )}
               </Menu.Item>
+              {!Is404 ? (
+                <>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <a
+                        href="#section-2"
+                        className="hover:text-[#263238]"
+                        to="features"
+                      >
+                        <button
+                          className={`${
+                            active
+                              ? "bg-violet-500 text-white"
+                              : "text-gray-900"
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        >
+                          Features
+                        </button>
+                      </a>
+                    )}
+                  </Menu.Item>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className="px-1 py-1">
+              {!Is404 ? (
+                <>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <a
+                        href="#section-3"
+                        className="hover:text-[#263238]"
+                        to="features"
+                      >
+                        <button
+                          className={`${
+                            active
+                              ? "bg-violet-500 text-white"
+                              : "text-gray-900"
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        >
+                          About Us
+                        </button>
+                      </a>
+                    )}
+                  </Menu.Item>{" "}
+                </>
+              ) : (
+                <></>
+              )}
+              {!isAuth() ? (
+                <>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link to="/login">
+                        <button
+                          className={`${
+                            active
+                              ? "bg-violet-500 text-white"
+                              : "text-gray-900"
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        >
+                          Login
+                        </button>
+                      </Link>
+                    )}
+                  </Menu.Item>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link to="/dashboard">
+                        <button
+                          className={`${
+                            active
+                              ? "bg-violet-500 text-white"
+                              : "text-gray-900"
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        >
+                          Dashboard
+                        </button>
+                      </Link>
+                    )}
+                  </Menu.Item>
+                </>
+              )}
             </div>
           </Menu.Items>
         </Transition>

@@ -16,7 +16,7 @@ const Activate = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (isAuth()) {
-      navigate("/beranda");
+      navigate("/dashboard");
     }
   });
 

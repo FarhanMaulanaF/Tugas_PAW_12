@@ -3,15 +3,24 @@ import Notes from "../../assets/Notes.svg";
 import Group from "../../assets/Group.svg";
 import Savingmoney from "../../assets/Savingmoney.svg";
 import Visualdata from "../../assets/Visualdata.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-function Features() {
+const features = () => {
+  AOS.init();
+  AOS.refresh();
   return (
     <div
       id="section-2"
       name="features"
       className="bg-white h-fit md:h-screen md:py-32 md:px-10 flex w-full flex-col font-Roboto"
     >
-      <div className="flex flex-col h-fit md:h-screen mx-auto">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+        className="flex flex-col h-fit md:h-screen mx-auto"
+      >
         <div className="text-black font-black text-4xl text-center mt-20 md:mt-0 content-center">
           Features
         </div>
@@ -52,6 +61,6 @@ function Features() {
       </div>
     </div>
   );
-}
+};
 
-export default Features;
+export default features;
