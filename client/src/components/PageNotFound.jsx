@@ -42,7 +42,7 @@ const PageNotFound = () => {
           <Dropdown />
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center content-center">
+      <div className="flex flex-col justify-center items-center content-center h-3/4">
         <div className="mr-5 ml-10 scale-75 md:scale-100">
           <img src={Notfound} alt="illustration" />
         </div>
