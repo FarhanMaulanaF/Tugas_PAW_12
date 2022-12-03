@@ -170,12 +170,12 @@ const Dashboard = () => {
     <div className="font-Roboto">
       <Navbar />
 
-      <div className="h-screen bg-[#F3F3F3] flex-none md:flex font-Roboto pt-24 md:pt-32 px-5 md:px-16 pb-10 text-lg md:text-xl">
+      <div className="h-screen bg-[#F3F3F3] flex-none md:flex font-Roboto pt-24 md:pt-32 px-5 md:px-16 pb-10 text-sm xm:text-lg md:text-xl">
         <div className="text-black font-black w-[100%] md:w-2/3 pr-0 md:pr-5">
           <ToastContainer />
           <div className="bg-white h-40 md:h-[15%] rounded-lg flex justify-between px-5 w-full items-center md:items-start md:pt-5">
-            <div className="gap-8 md:gap-0 flex justify-between pl-5 pr-10 md:pr-24 w-full">
-              <div className="ml-4 items-center w-fit ">
+            <div className="xs:gap-8 md:gap-0 flex-none xm:flex justify-between pl-5 pr-10 md:pr-24 w-full">
+              <div className="xs:ml-4 items-center w-fit ">
                 Your Money
                 <div className="font-medium h-3/5 place-items-start flex items-center">
                   {!isHavingInit ? (
@@ -192,8 +192,11 @@ const Dashboard = () => {
                               src={PlusCircle}
                               alt="PlusCircle"
                             />
-                            <div className="bg-[#319C69] flex  ">
-                              Add your starting balance
+                            <div className="bg-[#319C69] flex">
+                              <div className="hidden xm:flex">
+                                Add your starting balance
+                              </div>
+                              <div className="flex xm:hidden">Start</div>
                             </div>
                           </button>
                         </>
@@ -226,38 +229,41 @@ const Dashboard = () => {
                       )}
                     </>
                   ) : (
-                    <div>{tabungan}</div>
+                    <div>Rp {tabungan}</div>
                   )}
                 </div>
               </div>
               <div className="">
                 Total Expense
-                <div className="font-medium grid h-3/5 place-items-start items-center text-xl ">
+                <div className="font-medium grid h-3/5 place-items-start items-center xs:text-xl ">
                   Rp {pengeluaran}
                 </div>
               </div>
               <div className="">
                 Total Income
-                <div className="font-medium grid h-3/5  place-items-start items-center text-xl ">
+                <div className="font-medium grid h-3/5  place-items-start items-center  xm:text-xl ">
                   Rp {pemasukan}
                 </div>
               </div>
             </div>
           </div>
           <div className="mt-5 bg-white flex flex-col  h-[83%] rounded-lg">
-            <div className="mx-8 mt-12 justify-between flex">
+            <div className="mx-8 mt-12 justify-between flex items-center">
               <p>Transactions</p>
               {isHavingInit ? (
                 <>
                   {" "}
                   <NavLink to="/transactions">
-                    <button className=" bg-[#319C69] place-items-start rounded-md px-2 py-1 items-center text-white hover:text-[#263238] flex font-normal text-base">
+                    <button className=" bg-[#319C69] place-items-start rounded-md px-2 py-1 items-center text-white hover:text-[#263238] flex font-normal text-sm xm:text-base">
                       <img
-                        className="mr-1 "
+                        className="mr-1 hidden xm:flex"
                         src={PlusCircle}
                         alt="PlusCircle"
                       />
-                      <div>New Transaction</div>
+                      <div className="hidden xm:flex">New Transaction</div>
+                      <div className="flex xm:hidden font-medium px-1">
+                        Add New
+                      </div>
                     </button>
                   </NavLink>
                 </>

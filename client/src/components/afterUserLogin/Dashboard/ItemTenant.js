@@ -73,8 +73,8 @@ export default function ItemTenant(props, test) {
     <div
       className={
         props.itemData.label === "income"
-          ? "grid font-bold bg-white border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-between sm:text-base text-sm m-2"
-          : "grid font-bold bg-white border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-between sm:text-base text-sm m-2"
+          ? "grid font-medium xs:font-bold bg-white border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-between text-xs sm:text-base xm:text-sm m-2"
+          : "grid font-medium xs:font-bold bg-white border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-between text-xs sm:text-base xm:text-sm m-2"
       }
     >
       <div className="ml-5">{props.itemData.label}</div>
