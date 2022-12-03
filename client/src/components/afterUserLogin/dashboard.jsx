@@ -170,7 +170,7 @@ const Dashboard = () => {
     <div className="font-Roboto">
       <Navbar />
 
-      <div className="h-screen bg-[#F3F3F3] flex-none md:flex font-Roboto pt-20 md:pt-32 px-5 md:px-16 pb-10 text-xl">
+      <div className="h-screen bg-[#F3F3F3] flex-none md:flex font-Roboto pt-24 md:pt-32 px-5 md:px-16 pb-10 text-lg md:text-xl">
         <div className="text-black font-black w-[100%] md:w-2/3 pr-0 md:pr-5">
           <ToastContainer />
           <div className="bg-white h-40 md:h-[15%] rounded-lg flex justify-between px-5 w-full items-center md:items-start md:pt-5">
@@ -245,13 +245,13 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="mt-5 bg-white flex flex-col  h-[83%] rounded-lg">
-            <div className="mx-12 mt-12 justify-between flex ">
+            <div className="mx-8 mt-12 justify-between flex">
               <p>Transactions</p>
               {isHavingInit ? (
                 <>
                   {" "}
                   <NavLink to="/transactions">
-                    <button className=" bg-[#319C69]   place-items-start rounded-md px-2 py-1 items-center text-white flex font-normal text-base">
+                    <button className=" bg-[#319C69] place-items-start rounded-md px-2 py-1 items-center text-white hover:text-[#263238] flex font-normal text-base">
                       <img
                         className="mr-1 "
                         src={PlusCircle}
@@ -273,7 +273,7 @@ const Dashboard = () => {
         </div>
         <div className=" text-black font-black bg-white md:h[100%] md:w-1/3 rounded-lg w-[100%]">
           <div className="pl-10 pt-5 md:pt-0 mt-5 ">Statistics</div>
-          <div className="flex w-[95%] h-4/5 justify-center items-center font-extralight text-base pl-5 scale-90 md:scale-100">
+          <div className="flex w-[95%] h-4/5 justify-center items-center font-extralight text-base pl-5 scale-90 md:scale-100 px-10 md:px-10">
             {isRendered ? (
               <>
                 {" "}
