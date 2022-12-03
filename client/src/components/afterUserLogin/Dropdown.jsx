@@ -1,8 +1,9 @@
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Menu, Transition } from "@headlessui/react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import UserCircle from "../../assets/UserCircle.svg";
-import Burger from '../../assets/Icon.svg'
-import {Link} from 'react-router-dom'
+import Burger from "../../assets/Icon.svg";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   updateUser,
   isAuth,
@@ -13,14 +14,55 @@ import {
 import { useNavigate } from "react-router-dom";
 
 export default function Example() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+
+    link_profil: "",
+  });
+
+  useEffect(() => {
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 1500);
+    loadProfile();
+  }, []);
+  const loadProfile = () => {
+    const token = getCookie("token"); //mengambil token yang disimpan di dalam cookie
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
+        headers: {
+          // masih bingung gunanya headers ?
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        // setLoading(false);
+        const { name, email, link_profil } = res.data;
+        setFormData({ ...formData, name, email, link_profil });
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          signout(() => {
+            Navigate("/login");
+          });
+        }
+      });
+  };
+  const { name, email, link_profil } = formData;
+
   const Navigate = useNavigate();
   return (
     <div className=" mr-6 text-right">
       <Menu as="div" className="relative inline-block text-left">
-        <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            <img src={UserCircle}/>
-            
+        <div className="flex items-center w-full text-white">
+          <div className="sm:flex flex-col hidden">
+            <p className="w-56 text-lg font-bold"> {name}</p>
+            <p className="w-48 "> {email}</p>
+          </div>
+
+          <Menu.Button className="">
+            <img className="md:h-12 h-8" src={link_profil} />
           </Menu.Button>
         </div>
         <Transition
@@ -36,39 +78,31 @@ export default function Example() {
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
-                  <Link
-                 
-                  className="hover:text-[#263238]"
-                  to="/"
-                >
-                  <button
-                  
-                    className={`${
-                      active ? 'bg-[#319C69] text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                   
-                    Home
-                  </button>
+                  <Link className="hover:text-[#263238]" to="/">
+                    <button
+                      className={`${
+                        active ? "bg-[#319C69] text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Home
+                    </button>
                   </Link>
                 )}
               </Menu.Item>
               <Menu.Item>
-                
                 {({ active }) => (
                   <Link
-                  href="#section-1"
-                  className="hover:text-[#263238]"
-                  to="/profile"
-                >
-                  <button
-                    className={`${
-                      active ? 'bg-[#319C69] text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    href="#section-1"
+                    className="hover:text-[#263238]"
+                    to="/profile"
                   >
-                    
-                    Profile
-                  </button>
+                    <button
+                      className={`${
+                        active ? "bg-[#319C69] text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Profile
+                    </button>
                   </Link>
                 )}
               </Menu.Item>
@@ -76,35 +110,28 @@ export default function Example() {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
-                   <Link
-                  
-                   className="hover:text-[#263238]"
-                   to="/"
-                 >
-                  <button
-                  onClick={() => {
-                    signout(() => {
-                        Navigate("/");
-                    });
-                }}
-                    className={`${
-                      active ? 'bg-[#319C69] text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    
-                    Sign Out
-                  </button>
+                  <Link className="hover:text-[#263238]" to="/">
+                    <button
+                      onClick={() => {
+                        signout(() => {
+                          Navigate("/");
+                        });
+                      }}
+                      className={`${
+                        active ? "bg-[#319C69] text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Sign Out
+                    </button>
                   </Link>
                 )}
               </Menu.Item>
-             
             </div>
-           
           </Menu.Items>
         </Transition>
       </Menu>
     </div>
-  )
+  );
 }
 
 function EditInactiveIcon(props) {
@@ -122,7 +149,7 @@ function EditInactiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function EditActiveIcon(props) {
@@ -140,7 +167,7 @@ function EditActiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function DuplicateInactiveIcon(props) {
@@ -164,7 +191,7 @@ function DuplicateInactiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function DuplicateActiveIcon(props) {
@@ -188,7 +215,7 @@ function DuplicateActiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function ArchiveInactiveIcon(props) {
@@ -219,7 +246,7 @@ function ArchiveInactiveIcon(props) {
       />
       <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function ArchiveActiveIcon(props) {
@@ -250,7 +277,7 @@ function ArchiveActiveIcon(props) {
       />
       <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function MoveInactiveIcon(props) {
@@ -265,7 +292,7 @@ function MoveInactiveIcon(props) {
       <path d="M16 4L8 12" stroke="#A78BFA" strokeWidth="2" />
       <path d="M8 6H4V16H14V12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function MoveActiveIcon(props) {
@@ -280,7 +307,7 @@ function MoveActiveIcon(props) {
       <path d="M16 4L8 12" stroke="#C4B5FD" strokeWidth="2" />
       <path d="M8 6H4V16H14V12" stroke="#C4B5FD" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function DeleteInactiveIcon(props) {
@@ -303,7 +330,7 @@ function DeleteInactiveIcon(props) {
       <path d="M3 6H17" stroke="#A78BFA" strokeWidth="2" />
       <path d="M8 6V4H12V6" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function DeleteActiveIcon(props) {
@@ -326,5 +353,5 @@ function DeleteActiveIcon(props) {
       <path d="M3 6H17" stroke="#C4B5FD" strokeWidth="2" />
       <path d="M8 6V4H12V6" stroke="#C4B5FD" strokeWidth="2" />
     </svg>
-  )
+  );
 }

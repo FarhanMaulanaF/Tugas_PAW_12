@@ -14,6 +14,12 @@ import {
 
 export default function ItemTenant(props, test) {
   useEffect(() => {}, []);
+  const [deleted, setDeleted] = useState(false);
+
+  const handleOpenWarning = (e) => {
+    setDeleted(!deleted);
+  };
+
   const handleDelete = (e) => {
     const token = getCookie("token");
 
@@ -70,44 +76,80 @@ export default function ItemTenant(props, test) {
   console.log(src);
   console.log(props.pemasukan);
   return (
-    <div
-      className={
-        props.itemData.label === "income"
-          ? "grid font-bold border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm my-2 ml-5"
-          : "grid font-bold border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm my-2 ml-5"
-      }
-    >
-      <div className="ml-5">{props.itemData.label}</div>
-      <div className="flex capitalize">
-        <img src={`/transaction/${props.itemData.kategori}.svg`}></img>
-        {props.itemData.kategori}
-      </div>
-
-      {props.itemData.label === "income" ? (
+    <>
+      {deleted ? (
         <>
-          <div className="text-green-500">+Rp. {props.itemData.pemasukan}</div>
+          <div className="absolute bg-gray-500   -translate-y-72  bg-opacity-0 flex justify-center items-center h-full w-full">
+            <div className="md:w-1/2 w-[75%] h-[60%] lg:h-1/2 flex justify-center items-center">
+              <div className="w-3/4 rounded-md outline outline-2  bg-gray-200 px-5 flex flex-col justify-center items-center h-1/2">
+                <div className="text-black mb-5">
+                  Are you sure to delete this transaction?
+                </div>
+                <div className="flex w-[70%] items-center justify-between">
+                  <button
+                    onClick={handleOpenWarning}
+                    className="bg-white rounded-md w-[40%]"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleDelete}
+                    className="bg-[#319C69] rounded-md w-[40%]"
+                  >
+                    Yes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </>
       ) : (
         <></>
       )}
-      {props.itemData.label === "expense" ? (
-        <>
-          <div className="text-red-400">-Rp. {props.itemData.pengeluaran}</div>
-        </>
-      ) : (
-        <></>
-      )}
 
-      <div>{props.itemData.date}</div>
-      <div>{props.itemData.deskripsi}</div>
-      <div className=" flex justify-center items-center gap-5 flex-row">
-        <img
-          className="cursor-pointer"
-          onClick={handleDelete}
-          src={Trash}
-          alt="Trash Icon"
-        ></img>
+      <div
+        className={
+          props.itemData.label === "income"
+            ? "grid font-bold border-green-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm my-2 ml-5"
+            : "grid font-bold border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-6 justify-between sm:text-base text-sm my-2 ml-5"
+        }
+      >
+        <div className="ml-5">{props.itemData.label}</div>
+        <div className="flex capitalize">
+          <img src={`/transaction/${props.itemData.kategori}.svg`}></img>
+          {props.itemData.kategori}
+        </div>
+
+        {props.itemData.label === "income" ? (
+          <>
+            <div className="text-green-500">
+              +Rp. {props.itemData.pemasukan}
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+        {props.itemData.label === "expense" ? (
+          <>
+            <div className="text-red-400">
+              -Rp. {props.itemData.pengeluaran}
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+
+        <div>{props.itemData.date}</div>
+        <div>{props.itemData.deskripsi}</div>
+        <div className=" flex justify-center items-center gap-5 flex-row">
+          <img
+            className="cursor-pointer"
+            onClick={handleOpenWarning}
+            src={Trash}
+            alt="Trash Icon"
+          ></img>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

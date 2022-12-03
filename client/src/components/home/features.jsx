@@ -26,7 +26,7 @@ const features = () => {
         </div>
         <div className="md:flex flex-row items-center text-center gap-6 md:gap-5 h-4/5 mt-10 md:mt-20 font-medium">
           <div className="h-1/3 md:h-full my-2 md:pt-16 2xl:pt-0  mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
-            <div className="flex items-center justify-center m-10 md:ml-10">
+            <div className="flex flex-col  items-center justify-center m-10 md:ml-10">
               <img src={Notes} alt="Record Income and Expenses Illustration" />
             </div>
             <p className="mx-auto w-3/5 text-[#FFFFFF] md:mr-10">

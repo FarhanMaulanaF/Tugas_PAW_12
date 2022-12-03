@@ -6,7 +6,7 @@ import { authenticate, isAuth } from "../../helpers/auth";
 
 function Homepage() {
   return (
-    <div className="bg-[#319C69] overflow-hidden h-screen w-full font-Roboto">
+    <div className="bg-[#319C69] overflow-hidden h-fit w-full font-Roboto">
       {/* navbar  */}
       <div className="text-white flex justify-between items-center">
         <div className="font-black text-4xl ml-10 md:ml-32 my-10">
@@ -69,7 +69,7 @@ function Homepage() {
       {/* Pristin Content */}
       <div
         id="section-1"
-        className="flex flex-col md:flex-row  md:flex justify-between items-center pt-12"
+        className="flex flex-col md:flex-row h-fit  md:flex justify-between items-center pt-3"
       >
         <div className="order-last md:order-first">
           <div className="text-white text-6xl font-black text-center mt-10 md:ml-32 md:text-left">
