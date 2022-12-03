@@ -1,8 +1,8 @@
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useRef, useState } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import Burger from '../../assets/Icon.svg'
-import {Link} from 'react-router-dom'
+import { Menu, Transition } from "@headlessui/react";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Burger from "../../assets/Icon.svg";
+import { Link } from "react-router-dom";
 
 export default function Example() {
   return (
@@ -10,8 +10,7 @@ export default function Example() {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            <img src={Burger}/>
-            
+            <img src={Burger} />
           </Menu.Button>
         </div>
         <Transition
@@ -28,38 +27,34 @@ export default function Example() {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                  href="#section-1"
-                  className="hover:text-[#263238]"
-                  to="features"
-                >
-                  <button
-                  
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    href="#section-1"
+                    className="hover:text-[#263238]"
+                    to="features"
                   >
-                   
-                    Home
-                  </button>
+                    <button
+                      className={`${
+                        active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Home
+                    </button>
                   </a>
                 )}
               </Menu.Item>
               <Menu.Item>
-                
                 {({ active }) => (
                   <a
-                  href="#section-1"
-                  className="hover:text-[#263238]"
-                  to="features"
-                >
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    href="#section-1"
+                    className="hover:text-[#263238]"
+                    to="features"
                   >
-                    
-                    Features
-                  </button>
+                    <button
+                      className={`${
+                        active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Features
+                    </button>
                   </a>
                 )}
               </Menu.Item>
@@ -67,48 +62,32 @@ export default function Example() {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
-                   <a
-                   href="#section-1"
-                   className="hover:text-[#263238]"
-                   to="features"
-                 >
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  <a
+                    href="#section-1"
+                    className="hover:text-[#263238]"
+                    to="features"
                   >
-                    
-                    About Us
-                  </button>
+                    <button
+                      className={`${
+                        active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      About Us
+                    </button>
                   </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <Link to="/login">
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    
-                    Login
-                  </button>
+                    <button
+                      className={`${
+                        active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Login
+                    </button>
                   </Link>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    
-                    Delete
-                  </button>
                 )}
               </Menu.Item>
             </div>
@@ -116,7 +95,7 @@ export default function Example() {
         </Transition>
       </Menu>
     </div>
-  )
+  );
 }
 
 function EditInactiveIcon(props) {
@@ -134,7 +113,7 @@ function EditInactiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function EditActiveIcon(props) {
@@ -152,7 +131,7 @@ function EditActiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function DuplicateInactiveIcon(props) {
@@ -176,7 +155,7 @@ function DuplicateInactiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function DuplicateActiveIcon(props) {
@@ -200,7 +179,7 @@ function DuplicateActiveIcon(props) {
         strokeWidth="2"
       />
     </svg>
-  )
+  );
 }
 
 function ArchiveInactiveIcon(props) {
@@ -231,7 +210,7 @@ function ArchiveInactiveIcon(props) {
       />
       <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function ArchiveActiveIcon(props) {
@@ -262,7 +241,7 @@ function ArchiveActiveIcon(props) {
       />
       <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function MoveInactiveIcon(props) {
@@ -277,7 +256,7 @@ function MoveInactiveIcon(props) {
       <path d="M16 4L8 12" stroke="#A78BFA" strokeWidth="2" />
       <path d="M8 6H4V16H14V12" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function MoveActiveIcon(props) {
@@ -292,7 +271,7 @@ function MoveActiveIcon(props) {
       <path d="M16 4L8 12" stroke="#C4B5FD" strokeWidth="2" />
       <path d="M8 6H4V16H14V12" stroke="#C4B5FD" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function DeleteInactiveIcon(props) {
@@ -315,7 +294,7 @@ function DeleteInactiveIcon(props) {
       <path d="M3 6H17" stroke="#A78BFA" strokeWidth="2" />
       <path d="M8 6V4H12V6" stroke="#A78BFA" strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 function DeleteActiveIcon(props) {
@@ -338,5 +317,5 @@ function DeleteActiveIcon(props) {
       <path d="M3 6H17" stroke="#C4B5FD" strokeWidth="2" />
       <path d="M8 6V4H12V6" stroke="#C4B5FD" strokeWidth="2" />
     </svg>
-  )
+  );
 }
