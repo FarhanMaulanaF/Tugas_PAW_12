@@ -11,7 +11,7 @@ const Register = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (isAuth()) {
-      navigate("/beranda");
+      navigate("/dashboard");
     }
   });
   const [formData, setFormData] = useState({

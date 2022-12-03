@@ -39,7 +39,7 @@ const PageNotFound = () => {
               </>
             )}
           </ul>
-          <Dropdown />
+          <Dropdown is404={true} />
         </div>
       </div>
       <div className="flex flex-col justify-center items-center content-center h-3/4">
