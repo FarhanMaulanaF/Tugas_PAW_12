@@ -1,13 +1,20 @@
 import React from "react";
 import Team from "../../assets/team.png";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function AboutUs() {
+  AOS.init();
+  AOS.refresh();
   return (
     <div
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+      data-aos-delay="200"
       id="section-3"
       name="aboutus"
-      className="bg-white pt-48 font-Roboto h-screen w-fit flex ">
+      className="bg-white pt-32 font-Roboto h-screen w-fit flex ">
       <div className="md:grid-cols-2 grid mt-16 sm:mt-0 md:flex-row flex-col gap-5 w-fit h-1/2">
         <div className="justify-center md:ml-16">
           <div className="text-black text-center font-black text-4xl content-center md:text-left">
@@ -24,7 +31,7 @@ function AboutUs() {
           <div className="flex justify-center md:justify-start">
             <Link to="/register">
               <button class="bg-[#319C69] text-white md:text-left font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
-              Get Started
+                Get Started
               </button>
             </Link>
           </div>

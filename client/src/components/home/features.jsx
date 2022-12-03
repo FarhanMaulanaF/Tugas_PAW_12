@@ -15,45 +15,60 @@ const features = () => {
       name="features"
       className="bg-white h-fit md:h-screen md:py-32 md:px-10 flex w-full flex-col font-Roboto"
     >
-      <div
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="200"
-        className="flex flex-col h-fit md:h-screen mx-auto"
-      >
-        <div className="text-black font-black text-4xl text-center mt-20 md:mt-0 content-center">
+      <div className="flex flex-col h-fit md:h-screen mx-auto">
+        <div
+          data-aos="zoom-in-down"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+          className="text-black font-black text-4xl text-center mt-20 md:mt-0 content-center">
           Features
         </div>
         <div className="md:flex flex-row items-center text-center gap-6 md:gap-5 h-4/5 mt-10 md:mt-20 font-medium">
-          <div className="h-1/3 md:h-full my-2 md:pt-16 2xl:pt-0  mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
-            <div className="flex items-center justify-center m-10 md:ml-10">
+          <div
+            data-aos="flip-right"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+            className="h-full py-8 my-5 mx-auto w-11/12 flex flex-col items-center bg-[#319C69] rounded-lg">
+            <div className="flex items-center justify-center m-10 mb-20 xl:mb-10">
               <img src={Notes} alt="Record Income and Expenses Illustration" />
             </div>
-            <p className="mx-auto w-3/5 text-[#FFFFFF] md:mr-10">
+            <p className="w-4/5 text-[#FFFFFF]">
               Record your daily income and expenses
             </p>
           </div>
-          <div className="h-1/3 md:h-full my-2  md:pt-16 2xl:pt-0 mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
-            <div className="flex items-center justify-center m-10 md:ml-10">
+          <div
+            data-aos="flip-right"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+            className="h-full py-8 my-5 mx-auto w-11/12 flex flex-col items-center bg-[#319C69] rounded-lg">
+            <div className="flex items-center justify-center m-10 mb-12 xl:mb-10">
               <img src={Group} alt="Money Expenses Organization Illustration" />
             </div>
-            <p className="mx-auto w-3/5 text-[#FFFFFF] md:mr-10">
+            <p className="w-4/5 text-[#FFFFFF]">
               Keep track of where all your money is spent
             </p>
           </div>
-          <div className="h-1/3 md:h-full my-2  md:pt-16 2xl:pt-0 mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69]  rounded-lg">
-            <div className="flex items-center justify-center mt-10 md:ml-10">
+          <div
+            data-aos="flip-right"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+            className="h-full py-8 my-5 mx-auto w-11/12 flex flex-col items-center bg-[#319C69]  rounded-lg">
+            <div className="flex items-center justify-center m-10 pt-6 xl:scale-125 xl:mb-12">
               <img src={Savingmoney} alt="Saving Money Illustration" />
             </div>
-            <p className="mx-auto w-3/5 text-[#FFFFFF] mt-10 md:mx-10">
+            <p className="w-4/5 text-[#FFFFFF] mt-10 md:mx-10">
               Visualize your income and expenses based on your own categories
             </p>
           </div>
-          <div className="h-1/3 md:h-full my-2 md:pt-16 2xl:pt-0 mx-auto w-11/12 flex 2xl:flex-row flex-col items-center bg-[#319C69] rounded-lg">
-            <div className="flex items-center justify-center m-10 md:ml-10">
+          <div
+            data-aos="flip-right"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+            className="h-full py-8 my-5 mx-auto w-11/12 flex flex-col items-center bg-[#319C69] rounded-lg">
+            <div className="flex items-center justify-center m-10 mb-16 xl:mb-10">
               <img src={Visualdata} alt="Saving Money Illustration" />
             </div>
-            <p className="mx-auto w-3/5 text-[#FFFFFF] md:mr-10">
+            <p className="w-4/5 text-[#FFFFFF]">
               Manage your budgeting for future expense
             </p>
           </div>

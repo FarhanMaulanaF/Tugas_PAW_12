@@ -3,10 +3,15 @@ import Illustration from "../../assets/Illustration.png";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import { authenticate, isAuth } from "../../helpers/auth";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Homepage() {
+  AOS.init();
+  AOS.refresh();
+  AOS.refreshHard();
   return (
-    <div className="bg-[#319C69] overflow-hidden h-screen w-full font-Roboto">
+    <div className="bg-[#319C69] overflow-hidden h-fit w-full font-Roboto">
       {/* navbar  */}
       <div className="text-white flex justify-between items-center">
         <div className="font-black text-4xl ml-10 md:ml-32 my-10">
@@ -68,11 +73,14 @@ function Homepage() {
 
       {/* Pristin Content */}
       <div
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        data-aos-delay="200"
         id="section-1"
-        className="flex flex-col md:flex-row  md:flex justify-between items-center pt-12"
+        className="flex flex-col md:flex-row  md:flex justify-between items-center pt-3 h-fit"
       >
         <div className="order-last md:order-first">
-          <div className="text-white text-6xl font-black text-center mt-10 md:ml-32 md:text-left">
+          <div className="text-white text-6xl font-black text-center md:ml-32 md:text-left">
             Pristin
           </div>
 
@@ -90,7 +98,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="flex order-first md:order-last justify-center scale-75 md:scale-100 md:justify-start md:mr-32 md:my-32 ">
+        <div className="flex order-first md:order-last justify-start scale-75 md:scale-100 md:justify-start md:mr-16 md:my-20 ">
           <img src={Illustration} alt="illustration" />
         </div>
       </div>
