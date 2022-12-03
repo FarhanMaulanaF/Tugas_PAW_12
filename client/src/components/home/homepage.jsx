@@ -6,7 +6,7 @@ import { authenticate, isAuth } from "../../helpers/auth";
 
 function Homepage() {
   return (
-    <div className="bg-[#319C69] overflow-hidden h-fit w-full font-Roboto">
+    <div className="bg-[#319C69] overflow-hidden h-screen w-full font-Roboto">
       {/* navbar  */}
       <div className="text-white flex justify-between items-center">
         <div className="font-black text-4xl ml-10 md:ml-32 my-10">
@@ -90,7 +90,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="flex order-first md:order-last justify-center md:justify-start md:mr-32 md:my-32 ">
+        <div className="flex order-first md:order-last justify-center scale-75 md:scale-100 md:justify-start md:mr-32 md:my-32 ">
           <img src={Illustration} alt="illustration" />
         </div>
       </div>
