@@ -1,25 +1,35 @@
-# Tugas PAW Kelompok 12
+<h1 align="center"> Pristin
+<h2 align="center"> Tugas Pengembangan Aplikasi Web </h2><br>
 
-<p><h3>Anggota kelompok:</h3></p>
+<p><h3>Ide Web Aplikasi</h3></p>
+Aplikasi dengan tema financial yang akan membantu user untuk menganalisis dana pengeluaran dan pemasukkan.
+
+<h3>Kelompok 12 : </h3>
 <p>Hervi Nur Rahmandien - (20/463601/TK/51593)</br>
 Adya Sena Pamungkas - (20/460536/TK/51125)</br>
 Alfath Nuurlathif Sulistianto - (20/460538/TK/51127)</br>
 Natasha Astia Dewanti - (20/463610/TK/51602)</br>
 Farhan Maulana Firmansyah - (20/460544/TK/51133)</p>
 
-<p><h3>Ide Web Aplikasi</h3></p>
-Aplikasi dengan tema financial yang akan membantu user untuk menganalisis dana pengeluaran dan pemasukkan.
-
-<details><summary><h3>Wireframe UI</h3></summary>
-Link Figma: https://www.figma.com/file/Fvs2aHYn1sz8T2czR3Ji8R/UI-Design-PAW?node-id=0%3A1
-<img src="docs/assets/img/wireframe/landing page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/wireframe/login page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/wireframe/register page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/wireframe/dashboard-starting.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/wireframe/transaction page.jpg" class="img-responsive" alt="">
-<img src="docs/assets/img/wireframe/dashboard fill in.jpg" class="img-responsive" alt="">
-</details>
-
-<h3>Pra-UTS</h3>
+<h3>Link PPT Pra-UTS</h3>
 <a href="https://drive.google.com/file/d/1EQYn218KR0JNQeAhwO8PFCystvMzb4oV/view">Video Presentasi</a></br>
 <a href="https://www.canva.com/design/DAFNBgCVvN4/OMmKtGtfTk2i6RH9vXtPfQ/view?utm_content=DAFNBgCVvN4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Slide Presentasi</a>
+
+<h3>Link PPT Pasca-UTS</h3>
+<a href="https://www.canva.com/design/DAFSOLvcFW4/7dY2SOC-zBMtMjC3Wg1bgA/view?utm_content=DAFSOLvcFW4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Slide Presentasi</a>
+
+<h3>Link Deployment Aplikasi</h3>
+
+## How to run ?
+###  Run backend
+```
+npm install
+npm run dev
+```
+### Run front-end
+go to client folder
+```
+npm install
+npm start
+```
+
