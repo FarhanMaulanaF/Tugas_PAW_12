@@ -181,11 +181,12 @@ const UserProfile = () => {
               alt="UserCircle"
               className="w-40 h-40 mt-20 md:w-80 md:h-80 md:mt-24 bg-[#319C69] rounded-full shadow"
             />
-            <form 
-            onSubmit={handleSubmits}
-            className="items-center flex flex-col">
+            <form
+              onSubmit={handleSubmits}
+              className="items-center flex flex-col"
+            >
               <input
-                className="mt-5 mb-3 md:mt-8 border-2"
+                className="mt-5 mb-3 md:mt-8 border-2 w-full"
                 type="file"
                 accept=".png, .jpg, .jpeg"
                 name="photo5"
@@ -193,7 +194,8 @@ const UserProfile = () => {
               />
               <button
                 type="submit"
-                className="px-4 py-0.5 md:mt-2 rounded-md border-2 border-[#319C69] bg-white hover:bg-gray-200">
+                className="px-4 py-0.5 md:mt-2 rounded-md border-2 border-[#319C69] bg-white hover:bg-gray-200"
+              >
                 Confirm New Photo
               </button>
             </form>
