@@ -9,7 +9,7 @@ function Homepage() {
     <div className="bg-[#319C69] overflow-hidden h-fit w-full font-Roboto">
       {/* navbar  */}
       <div className="text-white flex justify-between items-center">
-        <div className="font-black text-4xl ml-10 md:ml-32 my-10">
+        <div className="font-black text-2xl xm:text-4xl ml-10 md:ml-32 my-10">
           <a href="/">Pristin</a>
         </div>
         <div className="md:mr-32  md:my-10">
@@ -72,18 +72,18 @@ function Homepage() {
         className="flex flex-col md:flex-row h-fit  md:flex justify-between items-center pt-3"
       >
         <div className="order-last md:order-first">
-          <div className="text-white text-6xl font-black text-center mt-10 md:ml-32 md:text-left">
+          <div className="text-white text-3xl xm:text-6xl font-black text-center mt-10 md:ml-32 md:text-left">
             Pristin
           </div>
 
-          <div className="text-white text-xl text-center md:ml-32 md:text-left font-light my-5">
+          <div className="text-white text-sm xm:text-xl text-center md:ml-32 md:text-left font-light my-5">
             Track, note, and manage your daily transactions <br /> all in a
             single page.
           </div>
 
           <div className="flex justify-center md:justify-start">
             <Link to="/register">
-              <button class="bg-[#F3F3F3] justify-center md:text-left md:ml-32 font-medium py-3 px-7 rounded-lg my-16 text-xl hover:bg-[#263238] hover:text-white">
+              <button class="bg-[#F3F3F3] justify-center md:text-left md:ml-32 font-medium py-3 px-7 rounded-lg my-8 xm:my-16 text-sm xm:text-xl hover:bg-[#263238] hover:text-white">
                 Get Started
               </button>
             </Link>
