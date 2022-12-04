@@ -47,10 +47,10 @@ const PageNotFound = () => {
           <img src={Notfound} alt="illustration" />
         </div>
         <div className="mt-10">
-          <div className="text-white md:text-8xl text-center font-black mr-2 md:mt-5 text-5xl">
+          <div className="text-white md:text-8xl text-center font-black mr-2 md:mt-5 text-4xl xm:text-5xl">
             Ooops!
           </div>
-          <div className="text-center text-white md:text-4xl font-black mr-2 my-5 text-2xl">
+          <div className="text-center text-white md:text-4xl font-black mr-2 my-5 text-lg xm:text-3xl">
             ERROR. Page Not Found.
           </div>
         </div>
