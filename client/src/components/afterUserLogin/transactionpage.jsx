@@ -66,13 +66,13 @@ const Transaction = ({ props }) => {
     <div className="font-Roboto">
       <Navbar />
       <div className="bg-[#F3F3F3] h-screen flex font-Roboto pt-16 md:pt-28 md:px-16 md:pb-10 text-xl">
-        <div className="bg-white h-full flex flex-col gap-5 justify-between text-[#333333] font-medium w-full pr-5 rounded-lg">
+        <div className="bg-white h-full flex flex-col gap-5 justify-between text-[#333333] font-extrabold w-full pr-5 rounded-lg">
           <div className="flex flex-wrap justify-between ml-5 mt-5">
             <div className="ml-1.5 mt-1">Transactions</div>
             <div className="flex justify-between">
               <button
                 onClick={() => setShowAddTransaction(true)}
-                className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-base rounded-lg px-2 py-1"
+                className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-sm xm:text-base rounded-lg px-2 py-1 content-center"
               >
                 <img src={PlusCircle} alt="PlusCircle" />
                 <div className="ml-2 hidden xm:flex">Add Transaction</div>
@@ -82,7 +82,7 @@ const Transaction = ({ props }) => {
                 onClick={(e) => {
                   setFilter(!filter);
                 }}
-                className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-base rounded-lg ml-5 px-2 py-1"
+                className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-sm xm:text-base rounded-lg ml-5 px-2 py-1 content-center"
               >
                 <img src={FadersWhite} alt="Faders" />
                 <div className="ml-2">Filter</div>
