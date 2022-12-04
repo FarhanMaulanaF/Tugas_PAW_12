@@ -16,7 +16,6 @@ import CheckCircle from "../../assets/CheckCircle (1).png";
 import Navbar from "./navbar";
 import BarData from "../chart/page/BarData";
 
-
 import { ToastContainer, toast } from "react-toastify";
 
 const Dashboard = () => {
