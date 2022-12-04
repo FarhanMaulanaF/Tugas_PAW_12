@@ -75,7 +75,8 @@ const Transaction = ({ props }) => {
                 className="items-center bg-[#319C69] text-white hover:bg-green-800 flex font-normal text-base rounded-lg px-2 py-1"
               >
                 <img src={PlusCircle} alt="PlusCircle" />
-                <div className="ml-2">Add Transaction</div>
+                <div className="ml-2 hidden xm:flex">Add Transaction</div>
+                <div className="ml-2 flex xm:hidden">Add</div>
               </button>
               <button
                 onClick={(e) => {
