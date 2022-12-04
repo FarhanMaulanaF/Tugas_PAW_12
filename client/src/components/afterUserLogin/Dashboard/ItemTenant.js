@@ -112,8 +112,8 @@ export default function ItemTenant(props, test) {
             : "grid font-medium xs:font-bold bg-white border-red-400 rounded-md px-2 items-center border-2 w-full grid-cols-4 md:grid-cols-6 sm:grid-cols-5 justify-between text-xs sm:text-base xm:text-sm m-2"
         }
       >
-        <div className="ml-5">{props.itemData.label}</div>
-        <div className="flex capitalize">
+        <div className="text-center">{props.itemData.label}</div>
+        <div className="flex capitalize items-center text-center justify-center">
           <img src={`/transaction/${props.itemData.kategori}.svg`}></img>
           {props.itemData.kategori}
         </div>
