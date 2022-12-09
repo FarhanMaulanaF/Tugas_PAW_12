@@ -19,7 +19,7 @@ Farhan Maulana Firmansyah - (20/460544/TK/51133)</p>
 <a href="https://www.canva.com/design/DAFSOLvcFW4/7dY2SOC-zBMtMjC3Wg1bgA/view?utm_content=DAFSOLvcFW4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Slide Presentasi</a>
 
 <h3>Link Deployment Aplikasi</h3>
-<a href="https://paw-frontend-6nc1.vercel.app/">Frontend</a>
+<a href="https://paw-frontend-6nc1.vercel.app/">Frontend</a></br>
 <a href="https://oyster-app-b6kr3.ondigitalocean.app/api">Backend</a>
 
 ## How to run ?
