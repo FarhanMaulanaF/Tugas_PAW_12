@@ -22,6 +22,9 @@ Farhan Maulana Firmansyah - (20/460544/TK/51133)</p>
 <a href="https://paw-frontend-6nc1.vercel.app/">Frontend</a></br>
 <a href="https://oyster-app-b6kr3.ondigitalocean.app/api">Backend</a>
 
+<h3>Link Dokumentasi Backend</h3>
+<a href="https://documenter.getpostman.com/view/17668293/2s8YzS14Fp">Postman Documentation</a></br>
+
 ## How to run ?
 ###  Run backend
 ```
